@@ -13,6 +13,6 @@ public class Singleton {
 	}
 	
 	public static void createString() {
-		System.out.println("create String in Singletong");
+		System.out.println("create String in Singleton");
 	}
 }
