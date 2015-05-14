@@ -11,7 +11,8 @@ public class FinallyTest {
 			fis = new FileInputStream("ab.txt");
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
-			return;
+//			return;
+			System.exit(1);
 		} finally {
 			if (fis != null) {
 				try {
