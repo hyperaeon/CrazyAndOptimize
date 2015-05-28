@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/antlr-2.7.6.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/asm-3.1.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/c3p0-0.9.1.2.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/c3p0-0.9.1.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/cglib-2.2.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/commons-collections-3.1.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/commons-logging-1.0.4.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/commons-pool-1.6.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/ehcache-1.1.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/hibernate3.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/javassist-3.4.GA.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/jta-1.1.jar"/>
-	<classpathentry kind="lib" path="G:/书本光盘/java程序性能优化/java程序性能优化/源文件/lib/mysql-connector-java-5.1.17-bin.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Oliver/.m2/repository/junit/junit/4.11/junit-4.11.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/booklib"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>

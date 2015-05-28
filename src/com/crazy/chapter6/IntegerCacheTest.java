@@ -12,5 +12,6 @@ public class IntegerCacheTest {
 		Integer in4 = Integer.valueOf(200);
 		Integer in5 = Integer.valueOf(200);
 		System.out.println(in4 == in5);
+		System.out.println(Integer.toString(21,2));
 	}
 }
