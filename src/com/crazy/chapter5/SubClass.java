@@ -17,7 +17,6 @@ public class SubClass extends BaseClass {
 		BaseClass bc = new BaseClass();
 		bc.base();
 		bc.test();
-		
 		SubClass sc = new SubClass();
 		sc.base();
 		sc.test();
