@@ -1,4 +1,4 @@
-package com.crazy.chapter8.duplicate;
+package com.crazy.chapter8.duplicate.set;
 
 import java.util.HashSet;
 
