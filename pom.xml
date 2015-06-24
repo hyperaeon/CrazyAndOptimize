@@ -4,13 +4,13 @@
   <artifactId>CrazyAndOptimize</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  <depencencies>
-      <dependency>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-entitimanager</artifactId>
-          <version>3.6.10.Final</version>
-      </dependency>
-  </depencencies>
+<!--   <depencencies> -->
+<!--       <dependency> -->
+<!--           <groupId>org.hibernate</groupId> -->
+<!--           <artifactId>hibernate-entitimanager</artifactId> -->
+<!--           <version>3.6.10.Final</version> -->
+<!--       </dependency> -->
+<!--   </depencencies> -->
   
   
   <build>
