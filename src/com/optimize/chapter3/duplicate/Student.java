@@ -1,10 +1,15 @@
 package com.optimize.chapter3.duplicate;
 
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student> {
 
 	private String name;
 	private int score;
-	
+
+	public Student(String name, int score) {
+		this.name = name;
+		this.score = score;
+	}
+
 	@Override
 	public int compareTo(Student o) {
 		if (this.score < o.score) {
@@ -23,7 +28,8 @@ public class Student implements Comparable<Student>{
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -37,13 +43,16 @@ public class Student implements Comparable<Student>{
 	}
 
 	/**
-	 * @param score the score to set
+	 * @param score
+	 *            the score to set
 	 */
 	public void setScore(int score) {
 		this.score = score;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
