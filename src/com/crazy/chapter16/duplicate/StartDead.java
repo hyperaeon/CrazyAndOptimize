@@ -12,6 +12,7 @@ public class StartDead extends Thread {
 
 	public static void main(String[] args) {
 		StartDead sd = new StartDead();
+		System.out.println("Is start Dead alive? " + sd.isAlive());
 		for (int i = 0; i < 300; i++) {
 			System.out.println(Thread.currentThread().getName() + " " + i);
 			if (i == 20) {
