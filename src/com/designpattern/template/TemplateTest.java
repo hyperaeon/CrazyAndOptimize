@@ -1,6 +1,6 @@
 package com.designpattern.template;
 
-public class StrategyTest {
+public class TemplateTest {
 
 	public static void main(String[] args) {
 		String exp = "9+9";
