@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class ErrorUtils {
 
-	//@SafeVarargs
+	@SafeVarargs
 	public static void faultyMethod(List<String>... listStrArray){
 		List[] listArray = listStrArray;
 		List<Integer> myList = new ArrayList<Integer>();
