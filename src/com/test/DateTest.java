@@ -40,5 +40,7 @@ public class DateTest {
 		currentDate = format24.parse(time24);
 		Long currentTime = currentDate.getTime();
 		System.out.println(currentTime);
+		
+		System.out.println(new Date().getTime());
 	}
 }
