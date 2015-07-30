@@ -1,0 +1,2 @@
+普通字符串
+com.crazy.chapter15.duplicate.RedirectOut@16dadf9
