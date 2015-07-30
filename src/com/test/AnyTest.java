@@ -1,6 +1,7 @@
 package com.test;
 
-import java.util.regex.Pattern;
+import java.util.Iterator;
+
 
 public class AnyTest {
 
@@ -14,5 +15,9 @@ public class AnyTest {
 	
 	private static void dateTest() {
 		
+	}
+	
+	private static void iteratorTest() {
+//		Iterator<String> iterator
 	}
 }
