@@ -5,10 +5,11 @@ import java.util.Scanner;
 public class WordStatistic {
 
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		String chineses = "[\u4e00-\u9fa5]";//中文的unicode
 		String english = "[a-zA-Z]";//英文的正则表达式
-		String space = "[ ]";
+		String space = "\\s";
 		while (sc.hasNext()) {
 			String str = sc.next();
 			int countH = 0;//统计中文个数

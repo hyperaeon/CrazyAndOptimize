@@ -1,0 +1,16 @@
+package com.designpattern.factory.duplicate.multipleFactory;
+
+import com.designpattern.factory.duplicate.simpleFactory.EmailSender;
+import com.designpattern.factory.duplicate.simpleFactory.Sender;
+import com.designpattern.factory.duplicate.simpleFactory.SmsSender;
+
+public class SendFactory {
+
+	public Sender produceSms() {
+		return new SmsSender();
+	}
+	
+	public Sender produceEmail() {
+		return new EmailSender();
+	}
+}

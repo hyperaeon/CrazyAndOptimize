@@ -48,5 +48,9 @@ public class SplitTest {
 			tmp = orgStr;
 		}
 		System.out.println(System.currentTimeMillis() - start);
+		
+		String s = "abcd";
+		String[] sarr = s.split(",");
+		System.out.println("sarr " + sarr.length);
 	}
 }
