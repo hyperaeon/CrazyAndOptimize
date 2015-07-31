@@ -9,5 +9,7 @@ public class Squart {
 				System.out.print(i + " ");
 			}
 		}
+		System.out.println(Math.floor(5.90));
+		System.out.println(Math.sqrt(256));
 	}
 }
