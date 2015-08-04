@@ -3,6 +3,9 @@ package com.algorithm.classic;
 public class Prime {
 
 	public static boolean isPrime(int j) {
+		if (j == 1) {
+			return false;
+		}
 		for (int i = 2; i <= Math.sqrt(j); i++) {
 			if (j % i == 0) {
 				return false;
@@ -20,7 +23,7 @@ public class Prime {
 			}
 		}
 		System.out.println();
-		System.out.println("¹²ÓÐËØÊý£º" + count);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + count);
 
 	}
 }
