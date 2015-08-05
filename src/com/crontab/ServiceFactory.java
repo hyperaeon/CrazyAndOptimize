@@ -1,27 +1,11 @@
 package com.crontab;
 
-import com.ssc.ssgm.fx.nba.dao.OrderNormalSizeDao;
-import com.ssc.ssgm.fx.nba.dao.OrderValidationDao;
-import com.ssc.ssgm.fx.nba.dao.PricingServiceDao;
-import com.ssc.ssgm.fx.nba.dao.impl.NbaResourceConfigDaoImpl;
-import com.ssc.ssgm.fx.nba.dao.impl.OrderNormalSizeDaoImpl;
-import com.ssc.ssgm.fx.nba.dao.impl.OrderValidationDaoImpl;
-import com.ssc.ssgm.fx.nba.dao.InvestManagerFundDao;
-import com.ssc.ssgm.fx.nba.dao.impl.InvestManagerFundDaoImpl;
-import com.ssc.ssgm.fx.nba.dao.impl.PricingServiceDaoImpl;
-import com.ssc.ssgm.fx.nba.dataaccess.CloudDataSource;
-import com.ssc.ssgm.fx.nba.exception.ObjectNotFoundException;
-import com.ssc.ssgm.fx.nba.legacy.dao.FxOrderDao;
-import com.ssc.ssgm.fx.nba.legacy.dao.impl.FxOrderDaoImpl;
-import com.ssc.ssgm.fx.nba.legacy.service.FxOrderService;
-import com.ssc.ssgm.fx.nba.legacy.service.impl.FxOrderServiceImpl;
-import com.ssc.ssgm.fx.nba.service.impl.QuartzServiceImpl;
-import com.ssc.ssgm.fx.nba.service.impl.SchedulerServiceImpl;
-import org.apache.log4j.Logger;
-
-import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.apache.log4j.Logger;
 
 /**
  * RefDataServiceFactory.

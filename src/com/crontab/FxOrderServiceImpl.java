@@ -7,14 +7,11 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import com.ssc.faw.util.GenException;
-import com.ssc.ssgm.fx.nba.legacy.dao.FxOrderDao;
-import com.ssc.ssgm.fx.nba.legacy.model.LegacyFxOrder;
-import com.ssc.ssgm.fx.nba.legacy.service.FxOrderService;
 
 public class FxOrderServiceImpl implements FxOrderService {
-	
-    private static final Logger LOG = Logger
-    	    .getLogger(FxOrderServiceImpl.class);
+
+	private static final Logger LOG = Logger
+			.getLogger(FxOrderServiceImpl.class);
 
 	private FxOrderDao fxOrderDao;
 
@@ -23,31 +20,34 @@ public class FxOrderServiceImpl implements FxOrderService {
 	}
 
 	@Override
-	public List<LegacyFxOrder> getFxOrderInRange(int dateRange, List<String> logNumKeyList) {
+	public List<LegacyFxOrder> getFxOrderInRange(int dateRange,
+			List<String> logNumKeyList) {
 		try {
-			List<LegacyFxOrder> origList = fxOrderDao.getFxOrderInRange(dateRange);
+			List<LegacyFxOrder> origList = fxOrderDao
+					.getFxOrderInRange(dateRange);
 			return filterByLogNum(origList, logNumKeyList);
 		} catch (GenException e) {
 			LOG.error("Exception when get order from database, return null.", e);
 			return null;
 		}
-		
+
 	}
 
-	private List<LegacyFxOrder> filterByLogNum(List<LegacyFxOrder> origList, List<String> logNumKeyList){
-		if(logNumKeyList == null || logNumKeyList.isEmpty()){
+	private List<LegacyFxOrder> filterByLogNum(List<LegacyFxOrder> origList,
+			List<String> logNumKeyList) {
+		if (logNumKeyList == null || logNumKeyList.isEmpty()) {
 			return origList;
 		}
-		for(String logNumKey : logNumKeyList) {
+		for (String logNumKey : logNumKeyList) {
 			LOG.debug("logNumKey: " + logNumKey + ".");
 		}
 		List<LegacyFxOrder> returnList = new ArrayList<LegacyFxOrder>();
-		for(LegacyFxOrder order : origList){
-			for(String logNumKey : logNumKeyList){
-				if(StringUtils.isBlank(logNumKey)){
+		for (LegacyFxOrder order : origList) {
+			for (String logNumKey : logNumKeyList) {
+				if (StringUtils.isBlank(logNumKey)) {
 					continue;
 				}
-				if(order.getLogNum().contains(logNumKey)){
+				if (order.getLogNum().contains(logNumKey)) {
 					returnList.add(order);
 					break;
 				}

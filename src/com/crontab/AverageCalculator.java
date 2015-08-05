@@ -2,8 +2,9 @@ package com.crontab;
 
 import java.math.BigDecimal;
 import java.util.List;
+
 import org.apache.log4j.Logger;
-import com.ssc.ssgm.fx.nba.helper.Calculator;
+
 
 public class AverageCalculator implements Calculator {
 

@@ -1,23 +1,18 @@
 package com.crontab;
 
-import com.google.gson.Gson;
-import com.ssc.faw.util.GenException;
-import com.ssc.ssgm.fx.nba.dao.NbaResourceConfigDao;
-import com.ssc.ssgm.fx.nba.dao.OrderNormalSizeDao;
-import com.ssc.ssgm.fx.nba.dao.PricingServiceDao;
-import com.ssc.ssgm.fx.nba.helper.Calculator;
-import com.ssc.ssgm.fx.nba.helper.impl.AverageCalculator;
-import com.ssc.ssgm.fx.nba.legacy.model.LegacyFxOrder;
-import com.ssc.ssgm.fx.nba.legacy.service.FxOrderService;
-import com.ssc.ssgm.fx.nba.model.*;
-import com.ssc.ssgm.fx.nba.model.json.JsonCalculationFilter;
-import com.ssc.ssgm.fx.nba.model.json.JsonOrderNormalSize;
-import com.ssc.ssgm.fx.nba.service.OrderNormalSizeService;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import java.math.BigDecimal;
-import java.util.*;
+import com.google.gson.Gson;
+import com.ssc.faw.util.GenException;
+import com.test.CurrencyPairGroup;
 
 public class OrderNormalSizeServiceImpl implements OrderNormalSizeService {
 
