@@ -2,6 +2,7 @@ package com.test;
 
 import java.awt.event.AWTEventListenerProxy;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.EventListener;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -19,7 +20,9 @@ public class AnyTest implements Serializable {
 
 	public static void main(String[] args) throws Exception {
 		classTest();
+		System.out.println(BigDecimal.ZERO);
 	}
+	
 
 	private static void stringTest() {
 
