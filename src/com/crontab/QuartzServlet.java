@@ -1,10 +1,5 @@
 package com.crontab;
 
-import com.ssc.ssgm.fx.nba.service.OrderNormalSizeService;
-import com.ssc.ssgm.fx.nba.service.QuartzService;
-import com.ssc.ssgm.fx.nba.service.ServiceFactory;
-import com.ssc.ssgm.fx.nba.service.impl.OrderNormalSizeServiceImpl;
-import com.ssc.ssgm.fx.nba.service.impl.QuartzServiceImpl;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;

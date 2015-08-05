@@ -1,8 +1,5 @@
 package com.crontab;
 
-import com.ssc.ssgm.fx.nba.service.OrderNormalSizeService;
-import com.ssc.ssgm.fx.nba.service.ServiceFactory;
-import com.ssc.ssgm.fx.nba.service.impl.OrderNormalSizeServiceImpl;
 import org.apache.log4j.Logger;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
