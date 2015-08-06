@@ -1,10 +1,5 @@
 package com.crontab;
 
-import com.ssc.ssgm.fx.nba.dao.NbaResourceConfigDao;
-import com.ssc.ssgm.fx.nba.dao.OrderNormalSizeDao;
-import com.ssc.ssgm.fx.nba.dao.PricingServiceDao;
-import com.ssc.ssgm.fx.nba.helper.Calculator;
-import com.ssc.ssgm.fx.nba.legacy.service.FxOrderService;
 
 public interface OrderNormalSizeService {
 	void setFxOrderService(FxOrderService fxOrderService);

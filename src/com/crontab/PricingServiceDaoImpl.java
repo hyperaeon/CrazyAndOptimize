@@ -11,14 +11,6 @@ import oracle.jdbc.OracleTypes;
 import org.apache.log4j.Logger;
 
 import com.ssc.faw.util.GenException;
-import com.ssc.ssgm.fx.handler.QueryPricingServiceResultSetHandler;
-import com.ssc.ssgm.fx.nba.dao.PricingServiceDao;
-import com.ssc.ssgm.fx.nba.model.PricingService;
-import com.ssc.ssgm.fx.nba.utils.AbstractCallableStatement;
-import com.ssc.ssgm.fx.nba.utils.JdbcCaller;
-import com.ssc.ssgm.fx.nba.utils.SqlOutParameter;
-import com.ssc.ssgm.fx.nba.utils.StoredProcedure;
-import com.ssc.ssgm.fx.utils.Constants;
 
 public class PricingServiceDaoImpl implements PricingServiceDao {
 
