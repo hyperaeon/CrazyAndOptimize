@@ -1,9 +1,6 @@
 package com.test;
 
-import java.awt.event.AWTEventListenerProxy;
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.EventListener;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -19,8 +16,7 @@ public class AnyTest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		classTest();
-		System.out.println(BigDecimal.ZERO);
+		splitTest();
 	}
 	
 
@@ -65,5 +61,11 @@ public class AnyTest implements Serializable {
 	}
 	
 	private static void eventListenerTest() {
+	}
+	
+	private static void splitTest() {
+		String str = "asdfasdf sfo  asldf sdf;#  ";
+		String[] arr = str.split(";#[\\s+]");
+		System.out.println(arr);
 	}
 }
