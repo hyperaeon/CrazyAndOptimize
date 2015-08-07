@@ -8,7 +8,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<springVersion>3.1.2.RELEASE</springVersion>
+		<springVersion>3.2.4.RELEASE</springVersion>
 		<cucumberVersion>1.1.8</cucumberVersion>
 		<quartz.version>1.6.3</quartz.version>
 		<powermock.version>1.6.0</powermock.version>
@@ -16,11 +16,11 @@
 	</properties>
 
 	<dependencies>
-<!-- 		<dependency> -->
-<!-- 	<groupId>org.hibernate</groupId> -->
-<!-- 	<artifactId>hibernate-entitimanager</artifactId> -->
-<!-- 	<version>3.6.10.Final</version> -->
-<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-entitimanager</artifactId> -->
+		<!-- <version>3.6.10.Final</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -37,17 +37,22 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.2.1</version>
 		</dependency>
-		<dependency>
-			<groupId>com.ssc.faw.osa</groupId>
-			<artifactId>osa_framework</artifactId>
-			<version>3.4.8f-11</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.jms</groupId>
-			<artifactId>jms</artifactId>
-			<version>1.1</version>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>com.ssc.faw.osa</groupId> -->
+		<!-- <artifactId>osa_framework</artifactId> -->
+		<!-- <version>3.4.8f-11</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>javax.jms</groupId> -->
+		<!-- <artifactId>jms</artifactId> -->
+		<!-- <version>1.1</version> -->
+		<!-- </dependency> -->
 
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.objenesis</groupId> -->
+<!-- 			<artifactId>objenesis</artifactId> -->
+<!-- 			<version>2.1</version> -->
+<!-- 		</dependency> -->
 		<!-- quartz starts -->
 		<dependency>
 			<groupId>opensymphony</groupId>
@@ -56,12 +61,11 @@
 		</dependency>
 		<!-- quartz end -->
 
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>10.2.0.4.0</version>
-
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>com.oracle</groupId> -->
+		<!-- <artifactId>ojdbc14</artifactId> -->
+		<!-- <version>10.2.0.4.0</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -142,11 +146,11 @@
 			<artifactId>dbunit</artifactId>
 			<version>2.5.0</version>
 		</dependency>
-		<dependency>
-			<groupId>commons-dbutils</groupId>
-			<artifactId>commons-dbutils</artifactId>
-			<version>1.5</version>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>commons-dbutils</groupId> -->
+		<!-- <artifactId>commons-dbutils</artifactId> -->
+		<!-- <version>1.5</version> -->
+		<!-- </dependency> -->
 
 		<!-- mockito -->
 		<dependency>
@@ -156,77 +160,77 @@
 		</dependency>
 
 		<!-- powermock -->
-		<dependency>
-			<groupId>org.powermock</groupId>
-			<artifactId>powermock-core</artifactId>
-			<version>${powermock.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.powermock</groupId> -->
+<!-- 			<artifactId>powermock-core</artifactId> -->
+<!-- 			<version>${powermock.version}</version> -->
+<!-- 		</dependency> -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.powermock</groupId> -->
 		<!-- <artifactId>powermock-api</artifactId> -->
 		<!-- <version>${powermock.version}</version> -->
 		<!-- <scope>test</scope> -->
 		<!-- </dependency> -->
-		<dependency>
-			<groupId>org.powermock</groupId>
-			<artifactId>powermock-api-mockito</artifactId>
-			<version>${powermock.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.powermock</groupId>
-			<artifactId>powermock-api-support</artifactId>
-			<version>${powermock.version}</version>
-			<scope>test</scope>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.powermock</groupId> -->
+<!-- 			<artifactId>powermock-api-mockito</artifactId> -->
+<!-- 			<version>${powermock.version}</version> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.powermock</groupId> -->
+<!-- 			<artifactId>powermock-api-support</artifactId> -->
+<!-- 			<version>${powermock.version}</version> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.powermock</groupId> -->
 		<!-- <artifactId>powermock-modules</artifactId> -->
 		<!-- <version>${powermock.version}</version> -->
 		<!-- <scope>test</scope> -->
 		<!-- </dependency> -->
-		<dependency>
-			<groupId>org.powermock</groupId>
-			<artifactId>powermock-reflect</artifactId>
-			<version>${powermock.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.powermock</groupId>
-			<artifactId>powermock-module-junit4</artifactId>
-			<version>${powermock.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.powermock</groupId> -->
+<!-- 			<artifactId>powermock-reflect</artifactId> -->
+<!-- 			<version>${powermock.version}</version> -->
+<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.powermock</groupId> -->
+		<!-- <artifactId>powermock-module-junit4</artifactId> -->
+		<!-- <version>${powermock.version}</version> -->
+		<!-- </dependency> -->
 
-		<dependency>
-			<groupId>httpunit</groupId>
-			<artifactId>httpunit</artifactId>
-			<version>1.7</version>
-			<exclusions>
-				<exclusion>
-					<groupId>jtidy</groupId>
-					<artifactId>jtidy</artifactId>
-				</exclusion>
-			</exclusions>
-			<scope>test</scope>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>httpunit</groupId> -->
+		<!-- <artifactId>httpunit</artifactId> -->
+		<!-- <version>1.7</version> -->
+		<!-- <exclusions> -->
+		<!-- <exclusion> -->
+		<!-- <groupId>jtidy</groupId> -->
+		<!-- <artifactId>jtidy</artifactId> -->
+		<!-- </exclusion> -->
+		<!-- </exclusions> -->
+		<!-- <scope>test</scope> -->
+		<!-- </dependency> -->
 
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-java</artifactId>
-			<version>${cucumberVersion}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-core</artifactId>
-			<version>${cucumberVersion}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>${cucumberVersion}</version>
-			<scope>test</scope>
-		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>info.cukes</groupId> -->
+		<!-- <artifactId>cucumber-java</artifactId> -->
+		<!-- <version>${cucumberVersion}</version> -->
+		<!-- <scope>test</scope> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>info.cukes</groupId> -->
+		<!-- <artifactId>cucumber-core</artifactId> -->
+		<!-- <version>${cucumberVersion}</version> -->
+		<!-- <scope>test</scope> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>info.cukes</groupId> -->
+		<!-- <artifactId>cucumber-junit</artifactId> -->
+		<!-- <version>${cucumberVersion}</version> -->
+		<!-- <scope>test</scope> -->
+		<!-- </dependency> -->
 		<!-- this dependency is stupid because the cloud osa framework code issue -->
 		<dependency>
 			<groupId>jfree</groupId>
@@ -245,17 +249,17 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.1</version>
 		</dependency>
-		<dependency>
-			<groupId>PwMatrix</groupId>
-			<artifactId>PwMatrix</artifactId>
-			<version>1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ssc.security.net</groupId>
-			<artifactId>security-api</artifactId>
-			<version>2.0</version>
+		<!-- <dependency> -->
+		<!-- <groupId>PwMatrix</groupId> -->
+		<!-- <artifactId>PwMatrix</artifactId> -->
+		<!-- <version>1.1</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.ssc.security.net</groupId> -->
+		<!-- <artifactId>security-api</artifactId> -->
+		<!-- <version>2.0</version> -->
 
-		</dependency>
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>xalan</groupId>
 			<artifactId>xalan</artifactId>
