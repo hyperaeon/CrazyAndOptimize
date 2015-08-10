@@ -16,9 +16,16 @@ public class CollectionOptimize {
 		collection.add("north10");
 		collection.add("east9");
 		int count = 0;
-		int colsize = collection.size();
 		String s = null;
 		for (int i = 0; i < collection.size(); i++) {
+			if ((s = (String) collection.get(i)).indexOf("north") != -1
+				|| s.indexOf("west") != -1
+				|| s.indexOf("sourth") != -1) {
+					count++;
+				}
+		}
+		int colsize = collection.size();
+		for (int i = 0; i < colsize; i++) {
 			if ((s = (String) collection.get(i)).indexOf("north") != -1
 				|| s.indexOf("west") != -1
 				|| s.indexOf("sourth") != -1) {
