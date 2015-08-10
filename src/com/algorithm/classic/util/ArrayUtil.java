@@ -27,4 +27,17 @@ public final class ArrayUtil {
 			System.out.print(n + " ");
 		}
 	}
+	
+	/**
+	 * print 2demension int array.
+	 * @param numbers
+	 */
+	public static void print2DIntArray(int[][] numbers) {
+		for (int i = 0; i < numbers.length; i++) {
+			for (int j = 0; j < numbers[0].length; j++) {
+				System.out.println(numbers[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
 }

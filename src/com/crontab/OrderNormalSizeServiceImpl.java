@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -42,6 +45,8 @@ public class OrderNormalSizeServiceImpl implements OrderNormalSizeService {
 	private PricingServiceDao pricingServiceDao;
 
 	private NbaResourceConfigDao nbaResourceConfigDao;
+	
+	private FutureTask<String> future;
 
 	public void setFxOrderService(FxOrderService fxOrderService) {
 		this.fxOrderService = fxOrderService;
@@ -59,6 +64,44 @@ public class OrderNormalSizeServiceImpl implements OrderNormalSizeService {
 		this.nbaResourceConfigDao = nbaResourceConfigDao;
 	}
 
+	/**
+	 * For asynchronize calculate.
+	 * @author a588727
+	 *
+	 */
+	private class CalculateAsync implements Callable<String> {
+
+		@Override
+		public String call() throws Exception {
+			return calculateAllNormalSize();
+		}
+	}
+	
+	/**
+	 * get real calculate value from ashnchronize.
+	 * @return
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
+	public String getRealCalculateValue() throws InterruptedException, ExecutionException {
+		
+		if (future.get() != null) {
+			return future.get();
+		}
+		return "Calculating...";
+	}
+	
+	/**
+	 * return calculate status value.
+	 * @return
+	 */
+	public String calculateAllNormalSizeAsync() {
+		CalculateAsync ca = new CalculateAsync();
+		future = new FutureTask<String>(ca);
+		new Thread(future).start();
+		return "Calculating";
+	}
+	
 	@Override
 	public String calculateAllNormalSize() {
 		Calculator calculator = new AverageCalculator();

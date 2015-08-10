@@ -16,7 +16,7 @@ public class AnyTest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		splitTest();
+		threadTest();
 	}
 	
 
@@ -67,5 +67,21 @@ public class AnyTest implements Serializable {
 		String str = "asdfasdf sfo  asldf sdf;#  ";
 		String[] arr = str.split(";#[\\s+]");
 		System.out.println(arr);
+	}
+	
+	private static void threadTest() {
+		Thread t = new Thread();
+		t.start();
+		try {
+			Thread.sleep(1000);
+			t.interrupt();
+		} catch (Exception e) {
+			
+		}
+		if (t.isAlive()) {
+			t.interrupt();
+			System.out.println(t.isAlive());
+		}
+		
 	}
 }
