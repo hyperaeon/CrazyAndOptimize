@@ -1,8 +1,6 @@
 package com.crazy.chapter15.duplicate.execise;
 
 import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import javax.swing.Box;
 import javax.swing.JCheckBoxMenuItem;
@@ -14,15 +12,17 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 
+import com.crazy.chapter15.duplicate.execise.actionListener.ExitItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.NewItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.OpenItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.SaveItemActionListener;
+import com.crazy.chapter15.duplicate.execise.actionListener.SaveOtherItemActionListener;
 
 public class Notepad {
 
 	JFrame f = new JFrame("记事本");
 
-	JTextArea ta = new JTextArea(8, 20);
+	JTextArea ta = new JTextArea(30, 100);
 
 	JMenuBar mb = new JMenuBar();
 	JMenu file = new JMenu("文件(F)");
@@ -170,6 +170,8 @@ public class Notepad {
 		newItem.addActionListener(new NewItemActionListener(f, ta));
 		openItem.addActionListener(new OpenItemActionListener(f, ta));
 		saveItem.addActionListener(new SaveItemActionListener(ta));
+		saveOtherItem.addActionListener(new SaveOtherItemActionListener(f, ta));
+		exitItem.addActionListener(new ExitItemActionListener(f, ta));
 	}
 	
 
