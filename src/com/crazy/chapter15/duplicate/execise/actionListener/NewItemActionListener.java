@@ -32,10 +32,9 @@ public class NewItemActionListener implements ActionListener {
 			JButton notSave = new JButton("不保存");
 			JButton cancel = new JButton("取消");
 			JPanel panel = new JPanel();
-			panel.add(save);
-			panel.add(notSave);
-			panel.add(cancel);
-			
+			panel.add(save,panel.RIGHT_ALIGNMENT);
+			panel.add(notSave,panel.RIGHT_ALIGNMENT);
+			panel.add(cancel,panel.RIGHT_ALIGNMENT);
 			Box box = Box.createVerticalBox();
 			box.add(jta);
 			box.add(panel);

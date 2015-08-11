@@ -1,6 +1,8 @@
 package com.crazy.chapter15.duplicate.execise;
 
 import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.Box;
 import javax.swing.JCheckBoxMenuItem;
@@ -13,6 +15,8 @@ import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 
 import com.crazy.chapter15.duplicate.execise.actionListener.NewItemActionListener;
+import com.crazy.chapter15.duplicate.execise.actionListener.OpenItemActionListener;
+import com.crazy.chapter15.duplicate.execise.actionListener.SaveItemActionListener;
 
 public class Notepad {
 
@@ -151,13 +155,23 @@ public class Notepad {
 		mb.add(check);
 		mb.add(help);
 
-		newItem.addActionListener(new NewItemActionListener(f, ta));
+		addActionListener();
 		// set menu bar
 		f.setJMenuBar(mb);
 		f.pack();
 		f.setVisible(true);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+
+	/**
+	 * add action listener to the component.
+	 */
+	public void addActionListener() {
+		newItem.addActionListener(new NewItemActionListener(f, ta));
+		openItem.addActionListener(new OpenItemActionListener(f, ta));
+		saveItem.addActionListener(new SaveItemActionListener(ta));
+	}
+	
 
 	public static void main(String[] args) {
 		new Notepad().init();
