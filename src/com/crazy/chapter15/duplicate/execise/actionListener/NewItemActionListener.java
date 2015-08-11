@@ -22,8 +22,6 @@ public class NewItemActionListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (!jta.getText().isEmpty()) {
 			new ConfirmDialogAction(f, jta).dialog();
-		} else {
-			System.exit(0);
 		}
 	}
 

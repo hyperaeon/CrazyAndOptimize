@@ -27,12 +27,12 @@ public class ConfirmDialogAction {
 					JOptionPane.INFORMATION_MESSAGE);
 			if (choice == JOptionPane.YES_OPTION) {
 				saveFile();
-			} else {
+			} else if (choice == JOptionPane.CANCEL_OPTION){
+				return;
+			} else if (choice == JOptionPane.NO_OPTION) {
 				System.exit(0);
 			}
-		} else {
-			System.exit(0);
-		}
+		} 
 	}
 	
 	/**

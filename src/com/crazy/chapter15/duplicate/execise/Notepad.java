@@ -168,7 +168,7 @@ public class Notepad {
 
 		lineChangeItem.setAccelerator(KeyStroke.getKeyStroke('W',
 				InputEvent.CTRL_MASK));
-		wordItem.setAccelerator(KeyStroke.getKeyStroke('F',
+		wordItem.setAccelerator(KeyStroke.getKeyStroke('T',
 				InputEvent.CTRL_MASK));
 
 		statusLineItem.setAccelerator(KeyStroke.getKeyStroke('S',
