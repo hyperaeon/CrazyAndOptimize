@@ -26,21 +26,19 @@ public class SaveOtherItemActionListener implements ActionListener {
 		fileDialog.setVisible(true);
 		String fileName = fileDialog.getFile();
 		String directory = fileDialog.getDirectory();
-		// if jta has content, then save the content.
-		if (!jta.getText().isEmpty()) {
-			FileWriter writer = null;
-			try {
-				writer = new FileWriter(directory + fileName);
-				writer.write(jta.getText().replaceAll("\n", "\r\n"));
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			} finally {
-				if (writer != null) {
-					try {
-						writer.close();
-					} catch (IOException e2) {
-						e2.printStackTrace();
-					}
+		// Save the content.
+		FileWriter writer = null;
+		try {
+			writer = new FileWriter(directory + fileName);
+			writer.write(jta.getText().replaceAll("\n", "\r\n"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} finally {
+			if (writer != null) {
+				try {
+					writer.close();
+				} catch (IOException e2) {
+					e2.printStackTrace();
 				}
 			}
 		}

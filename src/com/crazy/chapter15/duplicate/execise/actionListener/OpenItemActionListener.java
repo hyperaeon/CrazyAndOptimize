@@ -1,9 +1,6 @@
 package com.crazy.chapter15.duplicate.execise.actionListener;
 
-import java.awt.Dialog;
 import java.awt.FileDialog;
-import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -16,13 +13,10 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 
-import javax.swing.Box;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import com.crazy.chapter15.duplicate.execise.Constants;
+import com.crazy.chapter15.duplicate.execise.action.ConfirmDialogAction;
 
 public class OpenItemActionListener implements ActionListener {
 
@@ -90,41 +84,7 @@ public class OpenItemActionListener implements ActionListener {
 	 * jta content is not blank and open new file, then create the dialog to confirm. 
 	 */
 	private void createDialog() {
-		final Dialog dialog = new Dialog(f,"保存对话框",true);
-		dialog.setBounds(400, 500, 370, 140);
-		JTextArea textArea = new JTextArea("是否要保存原有文件到\n", 5, 30);
-		textArea.append(Constants.DEFAULT_FILE_PATH_NAME + Constants.TEXT_SUFFIX + " ?");
-		textArea.setFont(new Font("宋体", Font.BOLD, 18));//set textArea font
-		textArea.setEditable(false);
-		JButton save = new JButton("保存");
-		JButton notSave = new JButton("不保存");
-		JButton cancel = new JButton("取消");
-		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout(FlowLayout.RIGHT));//set layout
-		panel.add(save);
-		panel.add(notSave);
-		panel.add(cancel);
-		Box box = Box.createVerticalBox();
-		box.add(textArea);
-		box.add(panel);
-		
-		dialog.add(box);
-		dialog.setVisible(true);
-		cancel.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("Button clicked");
-			}
-		});
-//		dialog.addWindowListener(new WindowAdapter() {
-//			@Override
-//			public void windowClosing(WindowEvent e) {
-//				dialog.dispose();
-//				dialog.setVisible(false);
-//			}
-//		});
-		System.out.println("Button clicked");
+		new ConfirmDialogAction(f, jta).dialog();
 	}
 	
 	

@@ -1,5 +1,6 @@
 package com.crazy.chapter15.duplicate.execise;
 
+import java.awt.Font;
 import java.awt.event.InputEvent;
 
 import javax.swing.Box;
@@ -17,6 +18,7 @@ import com.crazy.chapter15.duplicate.execise.actionListener.NewItemActionListene
 import com.crazy.chapter15.duplicate.execise.actionListener.OpenItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.SaveItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.SaveOtherItemActionListener;
+import com.crazy.chapter15.duplicate.execise.actionListener.WordItemActionListener;
 
 public class Notepad {
 
@@ -65,9 +67,69 @@ public class Notepad {
 		JScrollPane jsp = new JScrollPane(ta);// add textArea
 		bottom.add(jsp);// add jscrollpane
 		f.add(bottom);
+		ta.setFont(new Font("宋体", Font.PLAIN, 15));// set default font.
 		/**
 		 * add key stroke for menu item.
 		 */
+		addStroke();
+
+		/**
+		 * add menuItem to menu
+		 */
+		addMenuItem();
+
+		addActionListener();
+		// set menu bar
+		f.setJMenuBar(mb);
+		f.pack();
+		f.setVisible(true);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	/**
+	 * add menuItem to menu.
+	 */
+	private void addMenuItem() {
+		file.add(newItem);
+		file.add(openItem);
+		file.add(saveItem);
+		file.add(saveOtherItem);
+		file.addSeparator();
+		file.add(pageSetItem);
+		file.add(printItem);
+		file.addSeparator();
+		file.add(exitItem);
+		edit.add(cutItem);
+		edit.addSeparator();
+		edit.add(copyItem);
+		edit.add(pasteItem);
+		edit.add(deleteItem);
+		edit.addSeparator();
+		edit.add(findItem);
+		edit.add(findNextItem);
+		edit.add(replaceItem);
+		edit.add(gotoItem);
+		edit.addSeparator();
+		edit.add(allSelectItem);
+		edit.add(dateItem);
+		format.add(lineChangeItem);
+		format.add(wordItem);
+		check.add(statusLineItem);
+		help.add(helpItem);
+		help.addSeparator();
+		help.add(aboutItem);
+
+		mb.add(file);
+		mb.add(edit);
+		mb.add(format);
+		mb.add(check);
+		mb.add(help);
+	}
+
+	/**
+	 * add stroke to Menu item.
+	 */
+	private void addStroke() {
 		newItem.setAccelerator(KeyStroke
 				.getKeyStroke('N', InputEvent.CTRL_MASK));
 		openItem.setAccelerator(KeyStroke.getKeyStroke('O',
@@ -116,51 +178,6 @@ public class Notepad {
 				InputEvent.CTRL_MASK));
 		aboutItem.setAccelerator(KeyStroke.getKeyStroke('A',
 				InputEvent.CTRL_MASK));
-
-		/**
-		 * add menuItem to menu
-		 */
-		file.add(newItem);
-		file.add(openItem);
-		file.add(saveItem);
-		file.add(saveOtherItem);
-		file.addSeparator();
-		file.add(pageSetItem);
-		file.add(printItem);
-		file.addSeparator();
-		file.add(exitItem);
-		edit.add(cutItem);
-		edit.addSeparator();
-		edit.add(copyItem);
-		edit.add(pasteItem);
-		edit.add(deleteItem);
-		edit.addSeparator();
-		edit.add(findItem);
-		edit.add(findNextItem);
-		edit.add(replaceItem);
-		edit.add(gotoItem);
-		edit.addSeparator();
-		edit.add(allSelectItem);
-		edit.add(dateItem);
-		format.add(lineChangeItem);
-		format.add(wordItem);
-		check.add(statusLineItem);
-		help.add(helpItem);
-		help.addSeparator();
-		help.add(aboutItem);
-
-		mb.add(file);
-		mb.add(edit);
-		mb.add(format);
-		mb.add(check);
-		mb.add(help);
-
-		addActionListener();
-		// set menu bar
-		f.setJMenuBar(mb);
-		f.pack();
-		f.setVisible(true);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	/**
@@ -172,8 +189,8 @@ public class Notepad {
 		saveItem.addActionListener(new SaveItemActionListener(ta));
 		saveOtherItem.addActionListener(new SaveOtherItemActionListener(f, ta));
 		exitItem.addActionListener(new ExitItemActionListener(f, ta));
+		wordItem.addActionListener(new WordItemActionListener(f));
 	}
-	
 
 	public static void main(String[] args) {
 		new Notepad().init();
