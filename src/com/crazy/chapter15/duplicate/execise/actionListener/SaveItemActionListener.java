@@ -22,7 +22,7 @@ public class SaveItemActionListener implements ActionListener {
 		FileWriter fileWriter = null;
 		try {
 			fileWriter = new FileWriter(Constants.DEFAULT_FILE_PATH_NAME + Constants.TEXT_SUFFIX);
-			fileWriter.write(jta.getText());
+			fileWriter.write(jta.getText().replaceAll("\n", "\r\n"));
 		} catch (IOException exception) {
 			exception.printStackTrace();
 		} finally {

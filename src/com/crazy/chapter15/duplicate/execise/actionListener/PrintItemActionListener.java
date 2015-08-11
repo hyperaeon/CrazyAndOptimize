@@ -1,0 +1,14 @@
+package com.crazy.chapter15.duplicate.execise.actionListener;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class PrintItemActionListener implements ActionListener {
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
