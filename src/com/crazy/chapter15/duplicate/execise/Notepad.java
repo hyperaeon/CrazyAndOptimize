@@ -231,11 +231,10 @@ public class Notepad {
 		saveItem.addActionListener(new SaveItemActionListener(ta));
 		saveOtherItem.addActionListener(new SaveOtherItemActionListener(f, ta));
 		exitItem.addActionListener(new ExitItemActionListener(f, ta));
-		wordItem.addActionListener(new WordItemActionListener(f));
+		wordItem.addActionListener(new WordItemActionListener(f, ta));
 		copyItem.addActionListener(new CopyItemActionListener(ta, clip));
 		pasteItem.addActionListener(new PasteItemActionListener(ta, clip));
 		deleteItem.addActionListener(new DeleteItemActionListener(ta));
-		
 		edit.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				if (ta.getSelectedText() != null && !ta.getSelectedText().isEmpty()) {

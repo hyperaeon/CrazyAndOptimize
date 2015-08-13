@@ -20,6 +20,8 @@ import javax.swing.JTextField;
 
 public class Fontdialog implements ActionListener, ItemListener {
 
+	private JTextArea jta;
+
 	List fontname, fontshape, fontsize;
 
 	JPanel pname, pshape, psize, pmodel, prb;
@@ -36,7 +38,8 @@ public class Fontdialog implements ActionListener, ItemListener {
 
 	public Font modelfont;
 
-	public Fontdialog(JFrame f, int x, int y) {
+	public Fontdialog(JFrame f, int x, int y, JTextArea jta) {
+		this.jta = jta;
 		GraphicsEnvironment g = GraphicsEnvironment
 				.getLocalGraphicsEnvironment();
 		String name[] = g.getAvailableFontFamilyNames();
@@ -68,11 +71,11 @@ public class Fontdialog implements ActionListener, ItemListener {
 		rbyw.addItemListener(this);
 		rbsz.addItemListener(this);
 		for (int i = 0; i < name.length; i++)
-			fontname.addItem(name[i]);
+			fontname.add(name[i]);
 		for (int i = 0; i < 200; i++)
-			fontsize.addItem(Integer.toString(i + 10));
+			fontsize.add(Integer.toString(i + 10));
 		for (int i = 0; i < shape.length; i++)
-			fontshape.addItem(shape[i]);
+			fontshape.add(shape[i]);
 		fontname.select(175);
 		fontshape.select(1);
 		fontsize.select(22);
@@ -130,10 +133,18 @@ public class Fontdialog implements ActionListener, ItemListener {
 		dialog.add(btncancel);
 		dialog.setSize(480, 440);
 		dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		dialog.show();
+		dialog.setVisible(true);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnok) {
+			if (modelfont != null) {
+				jta.setFont(modelfont);
+			}
+		}
+		if (e.getSource() == btncancel) {
+			dialog.setVisible(false);
+		}
 	}
 
 	public void itemStateChanged(ItemEvent e) {
