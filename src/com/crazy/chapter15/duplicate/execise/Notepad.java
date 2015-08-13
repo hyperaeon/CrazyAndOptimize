@@ -18,6 +18,8 @@ import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 
 import com.crazy.chapter15.duplicate.execise.actionListener.CopyItemActionListener;
+import com.crazy.chapter15.duplicate.execise.actionListener.CutItemActionListener;
+import com.crazy.chapter15.duplicate.execise.actionListener.DateItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.DeleteItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.ExitItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.NewItemActionListener;
@@ -25,6 +27,7 @@ import com.crazy.chapter15.duplicate.execise.actionListener.OpenItemActionListen
 import com.crazy.chapter15.duplicate.execise.actionListener.PasteItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.SaveItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.SaveOtherItemActionListener;
+import com.crazy.chapter15.duplicate.execise.actionListener.SelectAllItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.WordItemActionListener;
 
 public class Notepad {
@@ -107,25 +110,19 @@ public class Notepad {
 		statusLineItem.setEnabled(false);
 		cutItem.setEnabled(false);
 		copyItem.setEnabled(false);
-		pasteItem.setEnabled(false);
-		if (ta.getSelectedText() == null || ta.getSelectedText().isEmpty()) {
-			cutItem.setEnabled(false);
-			copyItem.setEnabled(false);
-			pasteItem.setEnabled(false);
-		}
+		deleteItem.setEnabled(false);
 	}
-	
 
 	private void disableTextItem() {
 		cutItem.setEnabled(false);
 		copyItem.setEnabled(false);
-		pasteItem.setEnabled(false);
+		deleteItem.setEnabled(false);
 	}
-	
+
 	private void enableTextItem() {
 		cutItem.setEnabled(true);
 		copyItem.setEnabled(true);
-		pasteItem.setEnabled(true);
+		deleteItem.setEnabled(true);
 	}
 
 	/**
@@ -184,11 +181,11 @@ public class Notepad {
 				InputEvent.CTRL_MASK));
 		printItem.setAccelerator(KeyStroke.getKeyStroke('P',
 				InputEvent.CTRL_MASK));
-		exitItem.setAccelerator(KeyStroke.getKeyStroke('X',
+		exitItem.setAccelerator(KeyStroke.getKeyStroke('I',
 				InputEvent.CTRL_MASK));
 
 		cutItem.setAccelerator(KeyStroke
-				.getKeyStroke('T', InputEvent.CTRL_MASK));
+				.getKeyStroke('X', InputEvent.CTRL_MASK));
 		copyItem.setAccelerator(KeyStroke.getKeyStroke('C',
 				InputEvent.CTRL_MASK));
 		pasteItem.setAccelerator(KeyStroke.getKeyStroke('P',
@@ -223,7 +220,8 @@ public class Notepad {
 	}
 
 	/**
-	 * add action listener to the component.
+	 * add action listener to the component, add new actionListener must
+	 * register here.
 	 */
 	public void addActionListener() {
 		newItem.addActionListener(new NewItemActionListener(f, ta));
@@ -235,10 +233,15 @@ public class Notepad {
 		copyItem.addActionListener(new CopyItemActionListener(ta, clip));
 		pasteItem.addActionListener(new PasteItemActionListener(ta, clip));
 		deleteItem.addActionListener(new DeleteItemActionListener(ta));
+		allSelectItem.addActionListener(new SelectAllItemActionListener(ta));
+		dateItem.addActionListener(new DateItemActionListener(ta));
+		cutItem.addActionListener(new CutItemActionListener(ta, clip));
 		edit.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				if (ta.getSelectedText() != null && !ta.getSelectedText().isEmpty()) {
-					enableTextItem();//if text selected then enable cut, copy and paste 
+				if (ta.getSelectedText() != null
+						&& !ta.getSelectedText().isEmpty()) {
+					enableTextItem();// if text selected then enable cut, copy
+										// and paste
 				} else {
 					disableTextItem();
 				}
