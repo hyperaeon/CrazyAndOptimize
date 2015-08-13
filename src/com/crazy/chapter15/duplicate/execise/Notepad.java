@@ -1,7 +1,11 @@
 package com.crazy.chapter15.duplicate.execise;
 
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
 import java.awt.event.InputEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.Box;
 import javax.swing.JCheckBoxMenuItem;
@@ -13,9 +17,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 
+import com.crazy.chapter15.duplicate.execise.actionListener.CopyItemActionListener;
+import com.crazy.chapter15.duplicate.execise.actionListener.DeleteItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.ExitItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.NewItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.OpenItemActionListener;
+import com.crazy.chapter15.duplicate.execise.actionListener.PasteItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.SaveItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.SaveOtherItemActionListener;
 import com.crazy.chapter15.duplicate.execise.actionListener.WordItemActionListener;
@@ -59,6 +66,10 @@ public class Notepad {
 	JMenuItem helpItem = new JMenuItem("查看帮助(H)");
 	JMenuItem aboutItem = new JMenuItem("关于记事本(A)");
 
+	Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();// system
+																		// clip
+																		// board;
+
 	/**
 	 * Initialize the context.
 	 */
@@ -78,12 +89,43 @@ public class Notepad {
 		 */
 		addMenuItem();
 
+		initDisableItem();
+
 		addActionListener();
 		// set menu bar
 		f.setJMenuBar(mb);
 		f.pack();
 		f.setVisible(true);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	/**
+	 * disable the specific menu item.
+	 */
+	private void initDisableItem() {
+		gotoItem.setEnabled(false);
+		statusLineItem.setEnabled(false);
+		cutItem.setEnabled(false);
+		copyItem.setEnabled(false);
+		pasteItem.setEnabled(false);
+		if (ta.getSelectedText() == null || ta.getSelectedText().isEmpty()) {
+			cutItem.setEnabled(false);
+			copyItem.setEnabled(false);
+			pasteItem.setEnabled(false);
+		}
+	}
+	
+
+	private void disableTextItem() {
+		cutItem.setEnabled(false);
+		copyItem.setEnabled(false);
+		pasteItem.setEnabled(false);
+	}
+	
+	private void enableTextItem() {
+		cutItem.setEnabled(true);
+		copyItem.setEnabled(true);
+		pasteItem.setEnabled(true);
 	}
 
 	/**
@@ -190,6 +232,19 @@ public class Notepad {
 		saveOtherItem.addActionListener(new SaveOtherItemActionListener(f, ta));
 		exitItem.addActionListener(new ExitItemActionListener(f, ta));
 		wordItem.addActionListener(new WordItemActionListener(f));
+		copyItem.addActionListener(new CopyItemActionListener(ta, clip));
+		pasteItem.addActionListener(new PasteItemActionListener(ta, clip));
+		deleteItem.addActionListener(new DeleteItemActionListener(ta));
+		
+		edit.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if (ta.getSelectedText() != null && !ta.getSelectedText().isEmpty()) {
+					enableTextItem();//if text selected then enable cut, copy and paste 
+				} else {
+					disableTextItem();
+				}
+			}
+		});
 	}
 
 	public static void main(String[] args) {
