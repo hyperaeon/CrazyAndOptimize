@@ -1,4 +1,4 @@
-package com.crazy.chapter15.duplicate.execise.action;
+package com.crazy.chapter15.duplicate.execise.notepad.action;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
-import com.crazy.chapter15.duplicate.execise.Constants;
+import com.crazy.chapter15.duplicate.execise.notepad.Constants;
 
 public class ConfirmDialogAction {
 

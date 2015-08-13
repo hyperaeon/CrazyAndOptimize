@@ -1,4 +1,4 @@
-package com.crazy.chapter15.duplicate.execise.actionListener;
+package com.crazy.chapter15.duplicate.execise.notepad.actionListener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,7 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
-import com.crazy.chapter15.duplicate.execise.action.ConfirmDialogAction;
+import com.crazy.chapter15.duplicate.execise.notepad.action.ConfirmDialogAction;
+
 
 public class ExitItemActionListener implements ActionListener {
 

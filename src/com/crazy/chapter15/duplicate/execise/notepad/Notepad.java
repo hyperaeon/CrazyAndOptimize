@@ -1,4 +1,4 @@
-package com.crazy.chapter15.duplicate.execise;
+package com.crazy.chapter15.duplicate.execise.notepad;
 
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -17,18 +17,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 
-import com.crazy.chapter15.duplicate.execise.actionListener.CopyItemActionListener;
-import com.crazy.chapter15.duplicate.execise.actionListener.CutItemActionListener;
-import com.crazy.chapter15.duplicate.execise.actionListener.DateItemActionListener;
-import com.crazy.chapter15.duplicate.execise.actionListener.DeleteItemActionListener;
-import com.crazy.chapter15.duplicate.execise.actionListener.ExitItemActionListener;
-import com.crazy.chapter15.duplicate.execise.actionListener.NewItemActionListener;
-import com.crazy.chapter15.duplicate.execise.actionListener.OpenItemActionListener;
-import com.crazy.chapter15.duplicate.execise.actionListener.PasteItemActionListener;
-import com.crazy.chapter15.duplicate.execise.actionListener.SaveItemActionListener;
-import com.crazy.chapter15.duplicate.execise.actionListener.SaveOtherItemActionListener;
-import com.crazy.chapter15.duplicate.execise.actionListener.SelectAllItemActionListener;
-import com.crazy.chapter15.duplicate.execise.actionListener.WordItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.CopyItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.CutItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.DateItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.DeleteItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.ExitItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.NewItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.OpenItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.PasteItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.SaveItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.SaveOtherItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.SelectAllItemActionListener;
+import com.crazy.chapter15.duplicate.execise.notepad.actionListener.WordItemActionListener;
 
 public class Notepad {
 

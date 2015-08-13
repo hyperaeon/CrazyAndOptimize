@@ -1,4 +1,4 @@
-package com.crazy.chapter15.duplicate.execise;
+package com.crazy.chapter15.duplicate.execise.notepad;
 
 public class Constants {
 

@@ -1,4 +1,4 @@
-package com.crazy.chapter15.duplicate.execise.action;
+package com.crazy.chapter15.duplicate.execise.notepad.action;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;

@@ -1,4 +1,4 @@
-package com.crazy.chapter15.duplicate.execise.actionListener;
+package com.crazy.chapter15.duplicate.execise.notepad.actionListener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.swing.JTextArea;
 
-import com.crazy.chapter15.duplicate.execise.Constants;
+import com.crazy.chapter15.duplicate.execise.notepad.Constants;
 
 public class SaveItemActionListener implements ActionListener {
 

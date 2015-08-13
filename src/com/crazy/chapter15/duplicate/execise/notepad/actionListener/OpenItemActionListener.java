@@ -1,4 +1,4 @@
-package com.crazy.chapter15.duplicate.execise.actionListener;
+package com.crazy.chapter15.duplicate.execise.notepad.actionListener;
 
 import java.awt.FileDialog;
 import java.awt.event.ActionEvent;
@@ -16,7 +16,7 @@ import java.nio.charset.CharsetDecoder;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
-import com.crazy.chapter15.duplicate.execise.action.ConfirmDialogAction;
+import com.crazy.chapter15.duplicate.execise.notepad.action.ConfirmDialogAction;
 
 public class OpenItemActionListener implements ActionListener {
 

@@ -9,14 +9,26 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AnyTest implements Serializable {
+	public AnyTest() {
+		System.out.println("Constructor");
+	}
 
+	{
+		System.out.println("Normal block");
+	}
+	
+	static {
+		System.out.println("Static block");
+	}
+	
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		threadTest();
+		new AnyTest();
 	}
 	
 

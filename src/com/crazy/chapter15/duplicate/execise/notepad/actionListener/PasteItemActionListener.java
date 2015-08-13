@@ -1,4 +1,4 @@
-package com.crazy.chapter15.duplicate.execise.actionListener;
+package com.crazy.chapter15.duplicate.execise.notepad.actionListener;
 
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
