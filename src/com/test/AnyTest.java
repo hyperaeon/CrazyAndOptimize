@@ -9,6 +9,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AnyTest implements Serializable {
+	
+	private int value = 2;
+	
 	public AnyTest() {
 		System.out.println("Constructor");
 	}
@@ -16,24 +19,24 @@ public class AnyTest implements Serializable {
 	{
 		System.out.println("Normal block");
 	}
-	
+
 	static {
 		System.out.println("Static block");
 	}
-	
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		new AnyTest();
+		AnyTest test = new AnyTest();
+		test.stringTest();
+		longAndLongTest();
 	}
-	
 
-	private static void stringTest() {
-
+	private void stringTest() {
+		System.out.println("stringTest()");
 	}
 
 	private static void dateTest() {
@@ -44,6 +47,12 @@ public class AnyTest implements Serializable {
 		// Iterator<String> iterator
 	}
 
+	private static void longAndLongTest() {
+		Long a = 230L;
+		Long b = 230L;
+		System.out.println(b == a);
+	}
+	
 	public static void ExecutorServiceTest() {
 		ExecutorService service = Executors.newCachedThreadPool();
 		FutureTask<String> task = new FutureTask<String>(new Cal());
@@ -71,16 +80,16 @@ public class AnyTest implements Serializable {
 			System.out.println("Same class");
 		}
 	}
-	
+
 	private static void eventListenerTest() {
 	}
-	
+
 	private static void splitTest() {
 		String str = "asdfasdf sfo  asldf sdf;#  ";
 		String[] arr = str.split(";#[\\s+]");
 		System.out.println(arr);
 	}
-	
+
 	private static void threadTest() {
 		Thread t = new Thread();
 		t.start();
@@ -88,12 +97,12 @@ public class AnyTest implements Serializable {
 			Thread.sleep(1000);
 			t.interrupt();
 		} catch (Exception e) {
-			
+
 		}
 		if (t.isAlive()) {
 			t.interrupt();
 			System.out.println(t.isAlive());
 		}
-		
+
 	}
 }
