@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.effective.chapter2;
+package com.effective.chapter2.rule1;
 
 /**
  * @author hzliyong

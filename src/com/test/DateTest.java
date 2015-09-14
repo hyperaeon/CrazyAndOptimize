@@ -11,17 +11,17 @@ public class DateTest {
 	public static void main(String[] args) throws Exception {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 //		System.out.println(new Date());
-		long time = 1436763670000L;
+		long time = 1441209600000L;
 		Date date = new Date(time);
-		System.out.println(date);
+		System.out.println("Time1: " + date);
 		System.out.println(format.format(date));
 //		Calendar cal = Calendar.getInstance();
 //		cal.setTime(date);
 //		cal.setTimeZone(TimeZone.getTimeZone("GMT"));
 //		System.out.println(cal.getTime());
-		long time2 = 1436720830000L;
+		long time2 = 1439740800000L;
 		Date date2 = new Date(time2);
-		System.out.println(date2);
+		System.out.println("Time1: " + date2);
 		System.out.println(format.format(date2));
 		
 		SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
