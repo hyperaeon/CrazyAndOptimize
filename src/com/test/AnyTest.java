@@ -3,6 +3,7 @@ package com.test;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -42,7 +43,7 @@ public class AnyTest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		System.out.println(Long.toString(123, 34));
+		dateTest();
 	}
 
 	private void stringTest() {
@@ -50,7 +51,9 @@ public class AnyTest implements Serializable {
 	}
 
 	private static void dateTest() {
-
+		Date date = new Date(1443061349617L);
+		System.out.println(date);
+		System.out.println(new Date().getTime());
 	}
 
 	private static void iteratorTest() {
