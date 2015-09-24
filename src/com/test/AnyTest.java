@@ -43,7 +43,7 @@ public class AnyTest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		dateTest();
+		bigDecimalTest();
 	}
 
 	private void stringTest() {
@@ -132,5 +132,9 @@ public class AnyTest implements Serializable {
 		BigDecimal big1 = BigDecimal.valueOf(680.00);
 		BigDecimal big2 = BigDecimal.valueOf(680);
 		System.out.println(big1.doubleValue() == big2.doubleValue());
+		
+		BigDecimal big3 = BigDecimal.valueOf(1);
+		BigDecimal big4 = BigDecimal.valueOf(1);
+		System.out.println(big3 == big4);
 	}
 }
