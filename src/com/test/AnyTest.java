@@ -133,8 +133,13 @@ public class AnyTest implements Serializable {
 		BigDecimal big2 = BigDecimal.valueOf(680);
 		System.out.println(big1.doubleValue() == big2.doubleValue());
 		
-		BigDecimal big3 = BigDecimal.valueOf(1);
+		BigDecimal big3 = BigDecimal.valueOf(1L);
 		BigDecimal big4 = BigDecimal.valueOf(1);
 		System.out.println(big3 == big4);
+		BigDecimal totalSkuTax = new BigDecimal(1000);
+		int count = 9;
+		System.out.println(totalSkuTax.divide(BigDecimal.valueOf(count), 2, BigDecimal.ROUND_HALF_UP));
+		System.out.println(totalSkuTax.divide(BigDecimal.valueOf(count)));
+		
 	}
 }
