@@ -14,17 +14,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AnyTest implements Serializable {
-	
+
 	private static final AtomicInteger counter = new AtomicInteger();
-	
-	
+
 	private int value = 2;
-	
+
 	public AnyTest() {
 		System.out.println("Constructor");
 		counter.incrementAndGet();
 	}
-	
+
 	public int getInstanceCount() {
 		return counter.get();
 	}
@@ -43,7 +42,9 @@ public class AnyTest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		bigDecimalTest();
+		StringBuilder builder = new StringBuilder();
+		builder.append("abc=").append(true);
+		System.out.println(builder.toString());
 	}
 
 	private void stringTest() {
@@ -65,7 +66,7 @@ public class AnyTest implements Serializable {
 		Long b = 230L;
 		System.out.println(b == a);
 	}
-	
+
 	public static void ExecutorServiceTest() {
 		ExecutorService service = Executors.newCachedThreadPool();
 		FutureTask<String> task = new FutureTask<String>(new Cal());
@@ -117,7 +118,7 @@ public class AnyTest implements Serializable {
 			System.out.println(t.isAlive());
 		}
 	}
-	
+
 	private static void concurrentModificationExceptionTest() {
 		List<String> list = new ArrayList<>();
 		list.add("abc");
@@ -127,12 +128,12 @@ public class AnyTest implements Serializable {
 			list.add("dsfs");
 		}
 	}
-	
+
 	private static void bigDecimalTest() {
 		BigDecimal big1 = BigDecimal.valueOf(680.00);
 		BigDecimal big2 = BigDecimal.valueOf(680);
 		System.out.println(big1.doubleValue() == big2.doubleValue());
-		
+
 		BigDecimal big3 = BigDecimal.valueOf(1L);
 		BigDecimal big4 = BigDecimal.valueOf(1);
 		System.out.println(big3 == big4);
@@ -140,6 +141,14 @@ public class AnyTest implements Serializable {
 		int count = 9;
 		System.out.println(totalSkuTax.divide(BigDecimal.valueOf(count), 2, BigDecimal.ROUND_HALF_UP));
 		System.out.println(totalSkuTax.divide(BigDecimal.valueOf(count)));
-		
+
+	}
+
+	private static void typeTransformTest() {
+		long start = System.currentTimeMillis();
+		System.out.println(start);
+		long expire = start + 10 * 365 * 3600 * 24 * 1000L;
+		System.out.println(expire);
+		System.out.println(expire - start);
 	}
 }
