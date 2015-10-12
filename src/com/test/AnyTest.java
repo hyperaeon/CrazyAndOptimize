@@ -1,6 +1,7 @@
 package com.test;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,9 +43,7 @@ public class AnyTest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		StringBuilder builder = new StringBuilder();
-		builder.append("abc=").append(true);
-		System.out.println(builder.toString());
+		getBytesTest();
 	}
 
 	private void stringTest() {
@@ -150,5 +149,25 @@ public class AnyTest implements Serializable {
 		long expire = start + 10 * 365 * 3600 * 24 * 1000L;
 		System.out.println(expire);
 		System.out.println(expire - start);
+	}
+	
+	private static void getBytesTest() throws UnsupportedEncodingException {
+		String word = "我";
+		byte[] gbk = word.getBytes("GBK");
+		byte[] utf8 = word.getBytes("UTF-8");
+		byte[] iso = word.getBytes("ISO8859-1");
+		System.out.println("gbk length: " + gbk.length + " gbk: " + gbk[0]);
+		System.out.println("utf8 length: " + utf8.length + " utf8: " + utf8[0]);
+		System.out.println("iso length: " + iso.length + " iso: " + iso[0]);
+		String gbkStr = new String(gbk, "GBK");
+		String utf8Str = new String(utf8, "UTF-8");
+		String isoStr = new String(iso, "ISO8859-1");
+		System.out.println(gbkStr);
+		System.out.println(utf8Str);
+		System.out.println(isoStr);
+		
+		String s_iso = new String(word.getBytes("UTF-8"), "ISO8859-1");
+		System.out.println(s_iso);
+		System.out.println(new String(s_iso.getBytes("ISO8859-1"), "UTF-8"));
 	}
 }
