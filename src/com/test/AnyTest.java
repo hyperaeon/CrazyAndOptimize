@@ -5,7 +5,11 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -43,7 +47,14 @@ public class AnyTest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		getBytesTest();
+		SortedMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
+		map.put(3, 3);
+		map.put(4, 4);
+		map.put(1, 1);
+		Iterator<Map.Entry<Integer, Integer>> it = map.entrySet().iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next().getValue());
+		}
 	}
 
 	private void stringTest() {
