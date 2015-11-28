@@ -22,6 +22,8 @@ public class AnyTest implements Serializable {
 
 	private static final AtomicInteger counter = new AtomicInteger();
 
+	private static final String PATTERN = "\\s{1}'\\d{4}-\\d{1,}-\\d{1,} \\d{1,}:\\d{1,}:\\d{1,}'";
+	
 	private int value = 2;
 
 	public AnyTest() {
@@ -55,8 +57,38 @@ public class AnyTest implements Serializable {
 		while (it.hasNext()) {
 			System.out.println(it.next().getValue());
 		}
+		
+		
+		String str = "2009-02-33 11:12:51";
+		if(str.matches("^\\d{4}-\\d{1,}-\\d{1,} \\d{1,}:\\d{1,}:\\d{1,}$")) {
+			System.out.println("日期");
+		} else {
+			System.out.println("非日期");
+		}
+		
+		String buffer = "INSERT INTO TB_Order_ReturnOrderSku VALUES (1158, 1406, 169.00, 1, '', " + 
+				"1419211942250, '', 0, '其它', 3, 1, 1001, 169.00, 2110, 4115, '2014-12-22 09:32:22', '2014-12-22 16:10:01');";
+		System.out.println(handle(buffer));
+		
+				
 	}
 
+	
+	private static String handle(String buffer) {
+			String[] seg = buffer.split(",|\\)");
+			StringBuilder sb = new StringBuilder();
+			for (String s : seg) {
+				s = s.replaceAll("\\\\'", "");
+				if (s.matches(PATTERN)) {
+					sb.append(",to_date(").append(s).append(", 'yyyy-mm-dd hh24:mi:ss')");
+				} else {
+					sb.append("," + s);
+				}
+			}
+			String result = sb.toString().replaceFirst(",", "").replaceFirst(",;", ");");
+			return result;
+	}
+	
 	private void stringTest() {
 		System.out.println("stringTest()");
 	}
