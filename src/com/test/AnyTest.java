@@ -80,6 +80,7 @@ public class AnyTest implements Serializable {
 //		System.out.println(after);
 //		System.out.println(new Random().nextInt(10000));
 		listOrder();
+		System.out.println(new Random().nextInt(10000));
 	}
 
 	private static void listOrder() {
@@ -92,6 +93,7 @@ public class AnyTest implements Serializable {
 			System.out.println(i);
 		}
 	}
+
 	private static byte[] long2ByteArray(long time) {
 		byte[] result = new byte[8];
 		result[0] = (byte) ((time >> 56) & 0xFF);

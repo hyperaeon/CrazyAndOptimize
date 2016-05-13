@@ -7,9 +7,9 @@ import java.io.RandomAccessFile;
 
 public class FileSplit {
 
-	private static final String SOURCE_PATH = "E:\\Doc\\Data_ana\\DDB\\";
+	private static final String SOURCE_PATH = "C:\\Users\\hzliyong\\Documents\\file\\";
 
-	private static final String DESTIN_PATH = "E:\\Doc\\Data_ana\\DDB\\handled\\splited\\";
+	private static final String DESTIN_PATH = "E:\\projects\\";
 
 	private static final int MAX_LINE = 50000;
 	
@@ -18,9 +18,10 @@ public class FileSplit {
 	public static void main(String[] args) {
 		File file = new File(SOURCE_PATH);
 		File[] files = file.listFiles();
+		System.out.println("");
 		for (File f : files) {
 			if (!f.isDirectory()) {
-//				System.out.println(f.getName() + " line count: " + countLine(SOURCE_PATH, f));
+				System.out.println(f.getName() + " line count: " + countLine(SOURCE_PATH, f));
 				splitFile(f);
 			}
 		}
