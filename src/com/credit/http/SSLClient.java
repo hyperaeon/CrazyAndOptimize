@@ -1,4 +1,4 @@
-package com.credit.parse;
+package com.credit.http;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;

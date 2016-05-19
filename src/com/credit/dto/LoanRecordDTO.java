@@ -1,5 +1,6 @@
 package com.credit.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,21 +10,21 @@ import java.util.List;
  */
 public class LoanRecordDTO {
 
-	private List<LoanRecordAbstractDTO> lanRecordAbstractDTOList;//
+	private List<LoanRecordAbstractDTO> loanRecordAbstractDTOList = new ArrayList<LoanRecordAbstractDTO>();//
 	
-	private List<String> creditDetail;//从未逾期过的贷记卡及透支未超过60天的准贷记卡账户明细
+	private List<String> creditDetail = new ArrayList<String>();//从未逾期过的贷记卡及透支未超过60天的准贷记卡账户明细
 	
-	private List<String> otherLoanOverdueDetail;//其他贷款发生过逾期的账户明细
+	private List<String> otherLoanOverdueDetail = new ArrayList<String>();//其他贷款发生过逾期的账户明细
 	
-	private List<String> otherLoanUnoverdueDetail;//其他贷款从未逾期过的账户明细
+	private List<String> otherLoanUnoverdueDetail = new ArrayList<String>();//其他贷款从未逾期过的账户明细
 
-	public List<LoanRecordAbstractDTO> getLanRecordAbstractDTOList() {
-		return lanRecordAbstractDTOList;
+	public List<LoanRecordAbstractDTO> getLoanRecordAbstractDTOList() {
+		return loanRecordAbstractDTOList;
 	}
 
-	public void setLanRecordAbstractDTOList(
-			List<LoanRecordAbstractDTO> lanRecordAbstractDTOList) {
-		this.lanRecordAbstractDTOList = lanRecordAbstractDTOList;
+	public void setLoanRecordAbstractDTOList(
+			List<LoanRecordAbstractDTO> loanRecordAbstractDTOList) {
+		this.loanRecordAbstractDTOList = loanRecordAbstractDTOList;
 	}
 
 	public List<String> getCreditDetail() {

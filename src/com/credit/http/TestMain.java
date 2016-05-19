@@ -1,4 +1,4 @@
-package com.credit.parse;
+package com.credit.http;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,20 +13,23 @@ public class TestMain {
 	}
 	
 	public void test(){
-		//String httpOrgCreateTest = url + "page/login/loginreg.jsp";
-		String httpOrgCreateTest = url + "login.do";
+		String httpOrgCreateTest = url + "page/login/loginreg.jsp";
+//		String httpOrgCreateTest = url + "login.do";
 		//String httpOrgCreateTest = url;
 		Map<String,String> createMap = new HashMap<String,String>();
-		createMap.put("username","jonney_zh");
-		createMap.put("password","ml520zl");
-		createMap.put("_@IMGRC@_","ceq3ry");
-		createMap.put("method","login");
-		createMap.put("date","1463386588706");
-	//	createMap.put("org.apache.struts.taglib.html.TOKEN","fcf25637ba9d9e3bec6d9f129671bb6d&method=login&date=1463376456608&loginname=jonney_zh&password=ml520zl&_%40IMGRC%40_=eh86c5");
-		createMap.put("org.apache.struts.taglib.html.TOKEN","8f5aad5960281ea25065fa4300858290");
-		
+//		createMap.put("username","jonney_zh");
 //		createMap.put("password","ml520zl");
-//		createMap.put("_@IMGRC@_","hxarbb");
+//		createMap.put("_@IMGRC@_","rcrbax");
+//		createMap.put("method","login");
+//		createMap.put("date","1463554692005");
+//		createMap.put("org.apache.struts.taglib.html.TOKEN","01122162548934f9be26b07ebb613d82");
+		createMap.put("loginname","jonney_zh");
+		createMap.put("password","ml520zl");
+		createMap.put("_@IMGRC@_","bkp4r4");
+		createMap.put("jsessionid","1rRxX8WhV4yLhlMRrTQybqWymLVbXvQF4qt1JkQnWSHDyJpv9B9H!385023987");
+		createMap.put("org.apache.struts.taglib.html.TOKEN","1378fa4a947176338bf773e90cad4d7e");
+		
+		
 		String httpOrgCreateTestRtn = httpClientUtil.doPost(httpOrgCreateTest,createMap,charset);
 		if(httpOrgCreateTestRtn==null){
 			System.out.println("the result is null");

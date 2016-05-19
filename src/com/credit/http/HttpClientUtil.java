@@ -1,4 +1,4 @@
-package com.credit.parse;
+package com.credit.http;
 
 import java.util.ArrayList;  
 import java.util.Iterator;  
