@@ -2,6 +2,7 @@ package com.crazy.chapter17;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.net.Socket;
 
 public class Client {
@@ -12,7 +13,9 @@ public class Client {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				socket.getInputStream()));
 		String line = reader.readLine();
-		System.out.println("来自服务器的消息" + line);
+		System.out.println("鏉ヨ嚜鏈嶅姟鍣ㄧ殑娑堟伅:" + line);
+		PrintStream ps = new PrintStream(socket.getOutputStream());
+		ps.print("鏈嶅姟鍣ㄤ綘濂斤紒");
 		reader.close();
 		socket.close();
 	}

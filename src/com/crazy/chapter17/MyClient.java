@@ -15,14 +15,14 @@ public class MyClient {
 		String line = null;
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				System.in));
-		
+
 		while ((line = reader.readLine()) != null) {
 			System.out.println("line:" + line);
 			ps.print(line);
 			System.out.println("After MyClient line:" + line);
 		}
-		// if ((line = reader.readLine()) != null) {
-		// ps.print(line);
-		// }
+		if ((line = reader.readLine()) != null) {
+			ps.print(line);
+		}
 	}
 }

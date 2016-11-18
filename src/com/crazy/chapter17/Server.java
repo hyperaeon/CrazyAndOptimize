@@ -1,5 +1,7 @@
 package com.crazy.chapter17;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -8,10 +10,13 @@ public class Server {
 
 	public static void main(String[] args) throws Exception {
 		ServerSocket server = new ServerSocket(30000);
+		BufferedReader br = null;
 		while (true) {
 			Socket socket = server.accept();
 			PrintStream stream = new PrintStream(socket.getOutputStream());
-			stream.print("ÄúºÃ£¡·şÎñÆ÷ÊÕµ½ÁËÄúµÄÏûÏ¢~£¡");
+			stream.print("æ‚¨å¥½ï¼æœåŠ¡å™¨æ”¶åˆ°äº†æ‚¨çš„æ¶ˆæ¯~ï¼");
+			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			System.out.println("æ¥è‡ªå®¢æˆ·ç«¯çš„æ¶ˆæ¯ï¼š" + br.readLine());
 			stream.close();
 			socket.close();
 		}

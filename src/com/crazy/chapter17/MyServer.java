@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MyServer {
 
-	public static List<Socket> socketList = new ArrayList<>();
+	public static List<Socket> socketList = new ArrayList<Socket>();
 
 	public static void main(String[] args) throws IOException {
 		ServerSocket server = new ServerSocket(30000);

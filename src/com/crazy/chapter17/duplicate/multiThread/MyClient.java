@@ -13,11 +13,12 @@ public class MyClient {
 	public static void main(String[] args) throws IOException {
 		Socket socket = new Socket("127.0.0.1", 30000);
 		new Thread(new ClientThread(socket)).start();
-		BufferedReader reader = new BufferedReader(new InputStreamReader(
-				System.in));
-		String line = null;
+//		BufferedReader reader = new BufferedReader(new InputStreamReader(
+//				System.in));
+		String line = "test";
 		PrintStream ps = new PrintStream(socket.getOutputStream());
-		while ((line = reader.readLine()) != null) {
+//		while ((line = reader.readLine()) != null) {
+		while (line != null) {
 			ps.print(line);
 		}
 	}

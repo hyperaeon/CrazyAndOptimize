@@ -17,7 +17,7 @@ public class ServerThread implements Runnable {
 				socket.getInputStream()));
 	}
 
-	@Override
+//	@Override
 	public void run() {
 		String content;
 		try {

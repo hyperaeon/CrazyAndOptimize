@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.*;
 /**
  * Description:
- * <br/>网站: <a href="http://www.crazyit.org">疯狂Java联盟</a> 
+ * <br/>锟斤拷站: <a href="http://www.crazyit.org">锟斤拷锟絁ava锟斤拷锟斤拷</a> 
  * <br/>Copyright (C), 2001-2012, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -16,19 +16,19 @@ import java.util.*;
  */
 public class MyServer
 {
-	//定义保存所有Socket的ArrayList
+	//锟斤拷锟藉保锟斤拷锟斤拷锟斤拷Socket锟斤拷ArrayList
 	public static ArrayList<Socket> socketList
-		= new ArrayList<>();
+		= new ArrayList<Socket>();
 	public static void main(String[] args) 
 		throws IOException
 	{
 		ServerSocket ss = new ServerSocket(30000);
 		while(true)
 		{
-			// 此行代码会阻塞，将一直等待别人的连接
+			// 锟斤拷锟叫达拷锟斤拷锟斤拷锟斤拷锟揭恢憋拷却锟斤拷锟剿碉拷锟斤拷锟斤拷
 			Socket s = ss.accept();
 			socketList.add(s);
-			// 每当客户端连接后启动一条ServerThread线程为该客户端服务
+			// 每锟斤拷锟酵伙拷锟斤拷锟斤拷锟接猴拷锟斤拷锟斤拷一锟斤拷ServerThread锟竭筹拷为锟矫客伙拷锟剿凤拷锟斤拷
 			new Thread(new ServerThread(s)).start();
 		}
 	}
