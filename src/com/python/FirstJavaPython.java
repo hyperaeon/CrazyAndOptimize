@@ -8,5 +8,6 @@ public class FirstJavaPython {
 		PythonInterpreter interpreter = new PythonInterpreter();
 		interpreter.exec("days=('Mod','Tue','Web','Thu','Fri')");
 		interpreter.exec("print(days[1])");
+		interpreter.execfile("E:/Doc/Programing/python/test.py");
 	}
 }
