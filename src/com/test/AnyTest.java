@@ -363,7 +363,6 @@ public class AnyTest implements Serializable {
 
 		@Override
 		public String call() throws Exception {
-			// TODO Auto-generated method stub
 			return null;
 		}
 
