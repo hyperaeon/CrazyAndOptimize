@@ -197,7 +197,7 @@ public class AnyTest implements Serializable {
 	}
 	
 	private static void testNuber() {
-		String str = "";
+		String str = "bcd";
 		System.out.println(Arrays.asList(str.split(",")));
 		String name = "1";
 		System.out.println(name.matches("^[0-9]+$"));
