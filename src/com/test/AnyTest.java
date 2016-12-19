@@ -52,6 +52,9 @@ public class AnyTest implements Serializable {
 	private static final Long interval = 10 * 60 * 1000L;// 阅读防刷间隔
 
 	public static void main(String[] args) throws Exception {
+//		mapAddTest();
+//		replaceEnter();
+//		subString();
 		// System.out.println("ass".equals(null));
 		// long a = 22222;
 		// Long b = 22222L;
@@ -136,6 +139,34 @@ public class AnyTest implements Serializable {
 		// testReg();
 		// getCalendar("[16/Dec/2012:05:32:50 -0500]");
 		// hadoopLsTest();
+	}
+
+	private static void mapAddTest() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("1", "abc");
+		map.put("2", "bcd");
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		map2.putAll(map);
+		map2.put("3", "cde");
+		
+		Map<String, Object> map3 = new HashMap<String, Object>();
+		map3.putAll(map);
+		map3.put("4", "efg");
+		map3.put("3", "ggg");
+		System.out.println(map2.get("3"));
+		System.out.println(map3.get("4"));
+	}
+	
+	private static void subString() {
+		String a = "[{}";
+		String lines = "abcd";
+		String l = lines.substring(0, lines.length());
+		System.out.println(l);
+	}
+
+	private static void replaceEnter() {
+		String abc = "";
+		System.out.println(abc.replaceAll("\r\n", "").replaceAll("\n", ""));
 	}
 
 	private static void processBuilder() {
