@@ -8,5 +8,8 @@ public class CollectionTest {
 		while (iterator.hasNext()) {
 			System.out.println(iterator.next());
 		}
+		for (int i = 0 ; i < 10; i++) {
+			System.out.println(iterator.next());
+		}
 	}
 }
