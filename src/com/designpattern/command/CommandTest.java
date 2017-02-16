@@ -7,5 +7,10 @@ public class CommandTest {
 		Command command = new MyCommand(receiver);
 		Invoker invoker = new Invoker(command);
 		invoker.action();
+		
+		BeAttacked beAttacked = new BeAttacked();
+		command = new AttackCommand(beAttacked);
+		invoker = new Invoker(command);
+		invoker.action();
 	}
 }
