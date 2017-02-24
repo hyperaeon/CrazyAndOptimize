@@ -55,7 +55,8 @@ public class AnyTest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		listTest();
+		System.out.println(counter.get());
+//		listTest();
 //		formatTest();
 //		bigDecimalTest2();
 		// trim();
