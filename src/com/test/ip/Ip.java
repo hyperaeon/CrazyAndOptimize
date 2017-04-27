@@ -180,7 +180,7 @@ public class Ip {
 //        }
         Long et = System.nanoTime();
         System.out.println((et - st) / 1000 / 1000);
-
-        System.out.println(Arrays.toString(Ip.find("121.62.96.229")));
+        String[] ip = Ip.find("123.25.189.138");
+        System.out.println(Arrays.toString(ip));
     }
 }
