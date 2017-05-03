@@ -9,4 +9,6 @@ public final class Constants {
 	public static int IP_MAX = 255;
 	
 	public static String SINA_IP = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=";
+	
+	public static String TAOBAO_IP = "http://ip.taobao.com/service/getIpInfo.php?ip=";
 }

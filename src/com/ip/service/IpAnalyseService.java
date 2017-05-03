@@ -5,8 +5,8 @@ import org.apache.commons.lang.StringUtils;
 import com.credit.http.HttpUtils;
 import com.ip.constant.Constants;
 import com.ip.dto.SinaIpDTO;
+import com.ip.dto.TaobaoIpDTO;
 import com.util.JsonUtils;
-import com.util.RandomUtils;
 
 public class IpAnalyseService {
 
@@ -30,12 +30,42 @@ public class IpAnalyseService {
 		return dto;
 	}
 	
+	/**
+	 * 从淘宝ip接口中获取ip对应的信息
+	 * @param ip
+	 * @return
+	 * hzliyong
+	 */
+	public static TaobaoIpDTO getTaobaoIpDTOByIp(String ip) {
+		String result = null;
+		try {
+			result = HttpUtils.httpGet(Constants.TAOBAO_IP + ip);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		TaobaoIpDTO dto = null;
+		if (StringUtils.isNotBlank(result)) {
+			try {
+				dto = JsonUtils.fromJson(result, TaobaoIpDTO.class);
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+		return dto;
+	}
+	
 	public static void main(String[] args) {
 //		String ip = "218.192.3.42";
-		for (int i = 0; i < 10000; i++) {
-			String ip = RandomUtils.getRandomIp(Constants.IP_MAX);
-			SinaIpDTO dto = getSinaIpDTOByIp(ip);
-			System.out.println(i + " " + ip + " " + dto);
-		}
+//		for (int i = 0; i < 10000; i++) {
+//			String ip = RandomUtils.getRandomIp(Constants.IP_MAX);
+//			SinaIpDTO dto = getSinaIpDTOByIp(ip);
+//			System.out.println(i + " " + ip + " " + dto);
+//		}
+		String str = "浙江省杭州";
+		System.out.println(str.replaceAll("省", ""));
+		System.out.println(str.replaceAll("市", ""));
+		
 	}
 }
