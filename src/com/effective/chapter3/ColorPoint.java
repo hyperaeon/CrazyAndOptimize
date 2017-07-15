@@ -9,8 +9,12 @@ package com.effective.chapter3;
  */
 public class ColorPoint {
 
-	private final Point point;
-	private final Color color;
+	private Point point;
+	private Color color;
+	
+	public ColorPoint() {
+		
+	}
 	
 	public ColorPoint(int x, int y, Color color) {
 		if (color == null) {
@@ -24,6 +28,22 @@ public class ColorPoint {
 		return point;
 	}
 	
+	public Point getPoint() {
+		return point;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setPoint(Point point) {
+		this.point = point;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof ColorPoint)) {

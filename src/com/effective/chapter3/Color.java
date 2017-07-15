@@ -9,10 +9,20 @@ package com.effective.chapter3;
  */
 public class Color {
 
+	private int color;
+	
 	public Color() {
 		
 	}
 	
+	public int getColor() {
+		return color;
+	}
+
+	public void setColor(int color) {
+		this.color = color;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Color)) {
