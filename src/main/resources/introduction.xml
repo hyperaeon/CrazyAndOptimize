@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/beans/aop
+       http://www.springframework.org/schema/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+     
+     <!-- 在指定的包中（com.tgb.*）扫描@componet注解的类 -->
+      <context:component-scan base-package="com"></context:component-scan> 
+     
+     <bean id = "greetingImpl" class = "com.test.spring.aop.GreetingImpl">
+         <property name="test">
+              <value>你好你好你好呀</value>
+         </property>
+     </bean> 
+     <!-- 定义一个代理类 -->
+     <bean id = "springProxy" class ="org.springframework.aop.framework.ProxyFactoryBean">
+          <property name="interfaces" value="com.test.spring.aop.Apology"/>  <!-- 需要动态实现的接口 -->
+          <property name="target" ref= "greetingImpl"/> <!-- 目标类，打招呼的实现类 -->
+          <property name="interceptorNames" value="greetingIntroAdvice"></property>  <!-- 引入增强类 -->
+          <property name="proxyTargetClass" value= "true"></property>
+     </bean>
+     
+     <bean id = "greetingIntroAdvice" class = "com.test.spring.aop.GreetingIntroAdvice"/>
+  </beans>
