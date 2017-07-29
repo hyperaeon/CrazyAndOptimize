@@ -15,6 +15,8 @@ public class Artist {
 
     private String nationality;
 
+    private boolean isSolo;
+
     public Artist() {
 
     }
@@ -58,5 +60,13 @@ public class Artist {
 
     public void setNationality(String nationality) {
         this.nationality = nationality;
+    }
+
+    public boolean isSolo() {
+        return isSolo;
+    }
+
+    public void setSolo(boolean solo) {
+        isSolo = solo;
     }
 }
