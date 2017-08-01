@@ -55,7 +55,7 @@ public class MethodInvokeTest {
     }
 
     private static double averageNumberOfTracks(List<Album> albums) {
-        return albums.stream().collect(averagingInt(album -> album.getTracks().size()));
+        return albums.stream().collect(averagingInt(album -> album.getTrackList().size()));
     }
 
     private static Map<Boolean, List<Artist>> bandsAndSolo(Stream<Artist> artists) {

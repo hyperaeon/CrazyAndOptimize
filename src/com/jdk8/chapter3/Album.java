@@ -1,6 +1,9 @@
 package com.jdk8.chapter3;
 
 import java.util.List;
+import java.util.stream.Stream;
+
+import static java.util.Collections.unmodifiableList;
 
 /**
  * Created by hzliyong on 2017/7/17 0017.
@@ -23,15 +26,19 @@ public class Album {
         this.name = name;
     }
 
-    public List<Track> getTracks() {
-        return tracks;
+    public Stream<Track> getTracks() {
+        return tracks.stream();
     }
 
     public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
 
-    public List<Artist> getMusicians() {
+    public Stream<Artist> getMusicians() {
+        return musicians.stream();
+    }
+
+    public List<Artist> getMusicianList() {
         return musicians;
     }
 
@@ -41,6 +48,10 @@ public class Album {
 
     public Artist getMainMusician() {
         return mainMusician;
+    }
+
+    public List<Track> getTrackList() {
+        return unmodifiableList(tracks);
     }
 
     public void setMainMusician(Artist mainMusician) {

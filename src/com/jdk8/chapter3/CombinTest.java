@@ -49,7 +49,7 @@ public class CombinTest {
         Set<String> trackNames = new HashSet<>();
         albums.stream()
                 .forEach(album -> {
-                    album.getTracks().stream()
+                    album.getTracks()
                             .filter(track -> track.getLength() > 60)
                             .map(track -> track.getName())
                             .forEach(name -> trackNames.add(name));
@@ -60,7 +60,7 @@ public class CombinTest {
     public Set<String> refactorLongTrack2(List<Album> albums) {
         Set<String> trackNames = new HashSet<>();
         albums.stream()
-                .flatMap(album -> album.getTracks().stream())
+                .flatMap(album -> album.getTracks())
                 .filter(track -> track.getLength() > 60)
                 .map(track -> track.getName())
                 .forEach(name -> trackNames.add(name));
@@ -69,7 +69,7 @@ public class CombinTest {
 
     public Set<String> refactorLongTrack3(List<Album> albums) {
         return albums.stream()
-                .flatMap(album -> album.getTracks().stream())
+                .flatMap(album -> album.getTracks())
                 .filter(track -> track.getLength() > 60)
                 .map(track -> track.getName())
                 .collect(Collectors.toSet());

@@ -32,7 +32,7 @@ public class LengthStatistics {
         printTrackLengthStatistics(album);
     }
     public static void printTrackLengthStatistics(Album album) {
-        IntSummaryStatistics trackLengthStats = album.getTracks().stream().mapToInt(track -> track.getLength())
+        IntSummaryStatistics trackLengthStats = album.getTracks().mapToInt(track -> track.getLength())
                 .summaryStatistics();
         System.out.printf("Max: %d, Min: %d, Ave: %f, Sum: %d",
                 trackLengthStats.getMax(),
