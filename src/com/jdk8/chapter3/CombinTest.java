@@ -23,7 +23,7 @@ public class CombinTest {
         list.add(a1);
         list.add(a2);
         album.setMusicians(list);
-        Set<String> origins = album.getMusicians().stream()
+        Set<String> origins = album.getMusicians()
                 .filter(artist -> artist.getName().startsWith("The"))
                 .map(artist -> artist.getNationality())
                 .collect(Collectors.toSet());
