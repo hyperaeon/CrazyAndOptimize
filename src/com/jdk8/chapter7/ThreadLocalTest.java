@@ -16,6 +16,7 @@ public class ThreadLocalTest {
 //        ThreadLocal<Album> thisAlbum = ThreadLocal.withInitial(() -> database.lookupCurrentAlbum());
         Object s = null;
         System.out.println(s + "");
+        System.out.println(Long.valueOf("null"));
     }
 
     public long countingRunningTime() {

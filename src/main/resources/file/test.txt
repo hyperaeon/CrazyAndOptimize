@@ -1,0 +1,2 @@
+普通字符串
+com.crazy.chapter15.fourth.basic.PrintStreamTest@15db9742
