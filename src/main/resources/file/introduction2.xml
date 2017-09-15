@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>comment</comment>
+<entry key="two">二</entry>
+<entry key="one">一</entry>
+<entry key="gender">male</entry>
+<entry key="three">三</entry>
+</properties>
