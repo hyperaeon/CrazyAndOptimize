@@ -71,22 +71,24 @@ public class AnnotationExtractor {
 	 * @author hzliyong
 	 *
 	 */
-	public interface Symbol {
-		String LEFT_BRACKETS = " (";
+	class Symbol {
+		private Symbol() {}
 		
-		String RIGHT_BRACKETS = ")";
+		public static final String LEFT_BRACKETS = " (";
 		
-		String COMMA = ",";
+		public static final String RIGHT_BRACKETS = ")";
 		
-		String ANTI_QUOTA = "`";
+		public static final String COMMA = ",";
 		
-		String QUOTA = "'";
+		public static final String ANTI_QUOTA = "`";
 		
-		String BLANK_SPACE = " ";
+		public static final String QUOTA = "'";
 		
-		String TAB = "\t";
+		public static final String BLANK_SPACE = " ";
 		
-		String ENTER = "\n";
+		public static final String TAB = "\t";
+		
+		public static final String ENTER = "\n";
 	}
 	
 	public static void processToCreate(String clazzName) throws ClassNotFoundException {
@@ -172,12 +174,11 @@ public class AnnotationExtractor {
 	 */
 	private static String getFieldType(String type) {
 		String strType = CLASS_TABLETYPE_MAP.get(type);
-		if (StringUtils.isBlank(strType)) {
-			if (type.contains("enums")) {
-				strType = "tinyint";
-			} else {
-				strType = type;
-			}
+		if (!StringUtils.isBlank(strType)
+				&& type.contains("enums")) {//枚举类的都转换成tinyint
+			strType = "tinyint";
+		} else {
+			strType = type;
 		}
 		return strType;
 	}
