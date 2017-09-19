@@ -299,7 +299,15 @@ public class AnnotationExtractor {
 	 * 将create语句保存到文件中
 	 */
 	private static void saveCreateTableToFile() throws Exception {
+		File file = new File(SAVE_PATH);
 		try (RandomAccessFile raf = new RandomAccessFile(SAVE_PATH, "rw")) {
+			boolean flag = true;
+			if (file.exists()) {//file存在则先删除
+				flag = file.delete();
+			}
+			if (!flag) {
+				return;
+			}
 			for (Map.Entry<Class<?>, String> entry : CLASS_CREATETABLE_MAP.entrySet()) {
 				raf.write(entry.getValue().getBytes());
 			}
