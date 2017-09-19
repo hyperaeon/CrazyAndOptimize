@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -37,9 +39,11 @@ public class AnnotationExtractor {
 	
 	private static final String COMMENT = "COMMENT";
 	
-	private static final String SUFFIX = " ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='%s'/* BF=id, POLICY=user, STARTID=0, ASSIGNIDTYPE=USB */;";//建表语句的后缀
+	private static final String PRIAMARY_KEY = "PRIMARY KEY ";
 	
-	private static final Map<String, String> CLASS_TABLETYPE_MAP = new HashMap<>();//java类型与数据库类型的映射 
+	private static final String SUFFIX = " ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='%s'/* BF=id, POLICY=user, STARTID=10000, ASSIGNIDTYPE=USB */;";//建表语句的后缀
+	
+//	private static final Map<String, String> CLASS_TABLETYPE_MAP = new HashMap<>();//java类型与数据库类型的映射 
 	
 	private static final String SAVE_PATH = "E:\\Doc\\新美\\任务\\createTable.sql";//保存路径
 	
@@ -55,15 +59,15 @@ public class AnnotationExtractor {
 		PATH_LIST.add("D:\\beauty-service\\beauty-service\\beauty-common\\target\\classes\\com\\netease\\beauty\\common\\constants\\enums");
 		PATH_LIST.add("D:\\beauty-service\\beauty-service\\beauty-sns\\beauty-sns-api\\target\\classes\\com\\netease\\beauty\\sns\\dto");
 		
-		CLASS_TABLETYPE_MAP.put("long", "bigint");
-		CLASS_TABLETYPE_MAP.put("class java.lang.Long", "bigint");
-		CLASS_TABLETYPE_MAP.put("class java.lang.String", "text");
-		CLASS_TABLETYPE_MAP.put("class java.lang.Integer", "int");
-		CLASS_TABLETYPE_MAP.put("int", "int");
-		CLASS_TABLETYPE_MAP.put("class java.util.Date", "timestamp");
-		CLASS_TABLETYPE_MAP.put("class java.math.BigDecimal", "decimal");
-		CLASS_TABLETYPE_MAP.put("class java.lang.Boolean", "tinyint");
-		CLASS_TABLETYPE_MAP.put("boolean", "tinyint");
+//		CLASS_TABLETYPE_MAP.put("long", "bigint");
+//		CLASS_TABLETYPE_MAP.put("class java.lang.Long", "bigint");
+//		CLASS_TABLETYPE_MAP.put("class java.lang.String", "text");
+//		CLASS_TABLETYPE_MAP.put("class java.lang.Integer", "int");
+//		CLASS_TABLETYPE_MAP.put("int", "int");
+//		CLASS_TABLETYPE_MAP.put("class java.util.Date", "timestamp");
+//		CLASS_TABLETYPE_MAP.put("class java.math.BigDecimal", "decimal");
+//		CLASS_TABLETYPE_MAP.put("class java.lang.Boolean", "tinyint");
+//		CLASS_TABLETYPE_MAP.put("boolean", "tinyint");
 	}
 
 	/**
@@ -122,6 +126,7 @@ public class AnnotationExtractor {
 						handleField(builder, fields);
 						builder.append(Symbol.RIGHT_BRACKETS).append(getSuffix(aoc.desc()))
 						.append(Symbol.ENTER).append(Symbol.ENTER);
+						break;
 					}
 				}
 			}
@@ -147,6 +152,7 @@ public class AnnotationExtractor {
 	 */
 	private static void handleField(StringBuilder builder, Field[] fields) {
 		if (fields != null) {
+			String primaryKey = "";
 			for (Field field : fields) {
 				if (field.isAnnotationPresent(AnnonOfField.class)) {
 					AnnonOfField aof = field.getAnnotation(AnnonOfField.class);
@@ -154,15 +160,21 @@ public class AnnotationExtractor {
 							&& aof.inDB()) {
 						String fieldName = field.getName();//字段名
 						//获取字段的类型
-						String fieldType = getFieldType(field.getType().toString());
+						String fieldType = getFieldType(field.getType());
 						String description = aof.desc();//描述
 						builder.append(Symbol.TAB);//添加空格
 						builder.append(wrapperWithAntiQuota(fieldName)).append(Symbol.BLANK_SPACE);//添加字段名
 						builder.append(fieldType).append(Symbol.BLANK_SPACE);//添加字段类型
 						builder.append(COMMENT).append(Symbol.BLANK_SPACE);//添加描述关键字
 						builder.append(wrapWithQuota(description)).append(Symbol.COMMA).append(Symbol.ENTER);//添加描述
+						if (aof.primary()) {//主键
+							primaryKey = PRIAMARY_KEY + wrapWithBrackets(fieldName);
+						}
 					}
 				}
+			}
+			if (StringUtils.isNotBlank(primaryKey)) {//添加主键描述
+				builder.append(Symbol.TAB).append(primaryKey).append(Symbol.ENTER);
 			}
 		}
 	}
@@ -172,14 +184,32 @@ public class AnnotationExtractor {
 	 * @param type
 	 * @return
 	 */
-	private static String getFieldType(String type) {
-		String strType = CLASS_TABLETYPE_MAP.get(type);
-		if (!StringUtils.isBlank(strType)
-				&& type.contains("enums")) {//枚举类的都转换成tinyint
+	private static String getFieldType(Class<?> type) {
+		String strType = "";
+		if (type.getName().contains("enums")) {//枚举类的都转换成tinyint
+			strType = "tinyint";
+		} else if (Integer.class.equals(type)) {
+			strType = "int";
+		} else if (Long.class.equals(type)) {
+			strType = "bigint";
+		} else if (String.class.equals(type)) {
+			strType = "text";
+		} else if (Date.class.equals(type)) {
+			strType = "timestamp";
+		} else if (BigDecimal.class.equals(type)) {
+			strType = "decimal";
+		} else if (Boolean.class.equals(type)) {
 			strType = "tinyint";
 		} else {
-			strType = type;
+			strType = type.getName();
 		}
+//		String strType = CLASS_TABLETYPE_MAP.get(type);
+//		if (!StringUtils.isBlank(strType)
+//				&& type.contains("enums")) {//枚举类的都转换成tinyint
+//			strType = "tinyint";
+//		} else {
+//			strType = type;
+//		}
 		return strType;
 	}
 
@@ -202,6 +232,15 @@ public class AnnotationExtractor {
 	 */
 	private static String wrapWithQuota(String str) {
 		return wrapWithSymbol(str, Symbol.QUOTA);
+	}
+	
+	/**
+	 * 用括号包裹str
+	 * @param str
+	 * @return
+	 */
+	private static String wrapWithBrackets(String str) {
+		return Symbol.LEFT_BRACKETS + str + Symbol.RIGHT_BRACKETS;
 	}
 	
 	/**
