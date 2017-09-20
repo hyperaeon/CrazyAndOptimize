@@ -45,7 +45,7 @@ public class AnnotationExtractor {
 	
 //	private static final Map<String, String> CLASS_TABLETYPE_MAP = new HashMap<>();//java类型与数据库类型的映射 
 	
-	private static final String SAVE_PATH = "E:\\Doc\\新美\\任务\\createTable.sql";//保存路径
+	private static final String DEST_PATH = "E:\\Doc\\新美\\任务\\createTable.sql";//保存的目标路径
 	
 	static {
 		PATH_LIST.add(PATH_PREFIX + "beauty-activity\\beauty-activity-api\\target\\classes\\com\\netease\\beauty\\activity\\meta");
@@ -55,7 +55,7 @@ public class AnnotationExtractor {
 		PATH_LIST.add(PATH_PREFIX + "beauty-sns\\beauty-sns-api\\target\\classes\\com\\netease\\beauty\\sns\\meta");
 		PATH_LIST.add(PATH_PREFIX + "beauty-ugc\\beauty-ugc-api\\target\\classes\\com\\netease\\beauty\\ugc\\meta");
 		PATH_LIST.add(PATH_PREFIX + "beauty-user\\beauty-user-api\\target\\classes\\com\\netease\\beauty\\user\\meta");
-		//由于meta中有枚举dto等，因此需要加载到虚拟机中
+		//由于meta中有枚举dto等类，因此需要加载到虚拟机中
 		PATH_LIST.add("D:\\beauty-service\\beauty-service\\beauty-common\\target\\classes\\com\\netease\\beauty\\common\\constants\\enums");
 		PATH_LIST.add("D:\\beauty-service\\beauty-service\\beauty-sns\\beauty-sns-api\\target\\classes\\com\\netease\\beauty\\sns\\dto");
 		
@@ -296,11 +296,11 @@ public class AnnotationExtractor {
 	}
 	
 	/**
-	 * 将create语句保存到文件中
+	 * 将create的sql语句保存到文件中
 	 */
 	private static void saveCreateTableToFile() throws Exception {
-		File file = new File(SAVE_PATH);
-		try (RandomAccessFile raf = new RandomAccessFile(SAVE_PATH, "rw")) {
+		File file = new File(DEST_PATH);
+		try (RandomAccessFile raf = new RandomAccessFile(DEST_PATH, "rw")) {
 			boolean flag = true;
 			if (file.exists()) {//file存在则先删除
 				flag = file.delete();
@@ -314,21 +314,29 @@ public class AnnotationExtractor {
 		}
 	}
 	
+	/**
+	 * 1、将所有class文件绝对路径放到PATH_SET中
+	 * 2、装载Class到CLASS_LIST
+	 * 3、循环对class类进行解析，将其转化成建表语句，放到CLASS_CREATETABLE_MAP中
+	 * 4、将建表语句保存到本地
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String[] args) throws Exception {
+		//先将所有class文件绝对路径放到PATH_SET中
 		findMetaClassToSet();
 		CompileClassLoader cc = new CompileClassLoader();
 		try {
+			//装载Class到CLASS_LIST
 			loadClassToList(cc);
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			System.exit(0);
 		}
+		//循环对class类进行解析，将其转化成建表语句，放到CLASS_CREATETABLE_MAP中
 		for (Class<?> clazz : CLASS_LIST) {
 			CLASS_CREATETABLE_MAP.put(clazz, processToCreate(clazz));
 		}
-		System.out.println(CLASS_LIST.size());
+		//将建表语句保存到本地
 		saveCreateTableToFile();
-		for (Map.Entry<Class<?>, String> entry : CLASS_CREATETABLE_MAP.entrySet()) {
-			System.out.println(entry.getValue());
-		}
 	}
 }
