@@ -13,10 +13,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.springframework.util.StringUtils;
+
 import com.netease.print.daojar.meta.annotation.AnnonOfClass;
 import com.netease.print.daojar.meta.annotation.AnnonOfField;
 
-import wiremock.org.apache.commons.lang.StringUtils;
 
 /**
  * 将meta类转换成建表语句保存到本地文件
@@ -173,7 +174,7 @@ public class AnnotationExtractor {
 					}
 				}
 			}
-			if (StringUtils.isNotBlank(primaryKey)) {//添加主键描述
+			if (!StringUtils.isEmpty(primaryKey)) {//添加主键描述
 				builder.append(Symbol.TAB).append(primaryKey).append(Symbol.ENTER);
 			}
 		}
@@ -300,14 +301,7 @@ public class AnnotationExtractor {
 	 */
 	private static void saveCreateTableToFile() throws Exception {
 		File file = new File(DEST_PATH);
-		try (RandomAccessFile raf = new RandomAccessFile(DEST_PATH, "rw")) {
-			boolean flag = true;
-			if (file.exists()) {//file存在则先删除
-				flag = file.delete();
-			}
-			if (!flag) {
-				return;
-			}
+		try (RandomAccessFile raf = new RandomAccessFile(file, "rw")) {
 			for (Map.Entry<Class<?>, String> entry : CLASS_CREATETABLE_MAP.entrySet()) {
 				raf.write(entry.getValue().getBytes());
 			}
