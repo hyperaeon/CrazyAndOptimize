@@ -38,6 +38,8 @@ public class AnnotationExtractor {
 	
 	private static final Map<Class<?>, String> CLASS_CREATETABLE_MAP = new HashMap<>();//类和类对应的建表语句的映射
 	
+	private static final Map<String, Class<?>> CLASS_NAME_CLASS_MAP = new HashMap<>();//类的全限定名与Class的映射
+	
 	private static final String COMMENT = "COMMENT";
 	
 	private static final String PRIAMARY_KEY = "PRIMARY KEY ";
@@ -47,6 +49,9 @@ public class AnnotationExtractor {
 //	private static final Map<String, String> CLASS_TABLETYPE_MAP = new HashMap<>();//java类型与数据库类型的映射 
 	
 	private static final String DEST_PATH = "E:\\Doc\\新美\\任务\\createTable.sql";//保存的目标路径
+	
+	private static final String CREATE_UPDATE_DATE = "\t`db_create_time` timestamp NULL DEFAULT '2000-01-01 00:00:00' COMMENT '创建时间',\n" + 
+			"\t`db_update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',\n";//db创建或修改语句
 	
 	static {
 		PATH_LIST.add(PATH_PREFIX + "beauty-activity\\beauty-activity-api\\target\\classes\\com\\netease\\beauty\\activity\\meta");
@@ -154,6 +159,7 @@ public class AnnotationExtractor {
 	private static void handleField(StringBuilder builder, Field[] fields) {
 		if (fields != null) {
 			String primaryKey = "";
+			boolean isDbCreateTimeExist = false;
 			for (Field field : fields) {
 				if (field.isAnnotationPresent(AnnonOfField.class)) {
 					AnnonOfField aof = field.getAnnotation(AnnonOfField.class);
@@ -171,8 +177,14 @@ public class AnnotationExtractor {
 						if (aof.primary()) {//主键
 							primaryKey = PRIAMARY_KEY + wrapWithBrackets(fieldName);
 						}
+						if ("db_create_time".equals(fieldName)) {
+							isDbCreateTimeExist = true;
+						}
 					}
 				}
+			}
+			if (!isDbCreateTimeExist) {
+				builder.append(CREATE_UPDATE_DATE);//追加db创建和修改时间
 			}
 			if (!StringUtils.isEmpty(primaryKey)) {//添加主键描述
 				builder.append(Symbol.TAB).append(primaryKey).append(Symbol.ENTER);
@@ -189,17 +201,20 @@ public class AnnotationExtractor {
 		String strType = "";
 		if (type.getName().contains("enums")) {//枚举类的都转换成tinyint
 			strType = "tinyint";
-		} else if (Integer.class.equals(type)) {
+		} else if (Integer.class.equals(type)
+				|| "int".equalsIgnoreCase(type.getName())) {
 			strType = "int";
-		} else if (Long.class.equals(type)) {
-			strType = "bigint";
+		} else if (Long.class.equals(type)
+				|| "long".equalsIgnoreCase(type.getName())) {
+			strType = "bigint(20)";
 		} else if (String.class.equals(type)) {
 			strType = "text";
 		} else if (Date.class.equals(type)) {
 			strType = "timestamp";
 		} else if (BigDecimal.class.equals(type)) {
 			strType = "decimal";
-		} else if (Boolean.class.equals(type)) {
+		} else if (Boolean.class.equals(type)
+				|| "boolean".equalsIgnoreCase(type.getName())) {
 			strType = "tinyint";
 		} else {
 			strType = type.getName();
@@ -309,28 +324,45 @@ public class AnnotationExtractor {
 	}
 	
 	/**
+	 * @Description: 
 	 * 1、将所有class文件绝对路径放到PATH_SET中
 	 * 2、装载Class到CLASS_LIST
 	 * 3、循环对class类进行解析，将其转化成建表语句，放到CLASS_CREATETABLE_MAP中
 	 * 4、将建表语句保存到本地
-	 * @param args
-	 * @throws Exception
+	 * @Author: hzliyong
+	 * @Date: 2017年9月21日
+	 * @Time: 下午5:18:27
 	 */
-	public static void main(String[] args) throws Exception {
-		//先将所有class文件绝对路径放到PATH_SET中
+	private static void createTableToFile() throws Exception {
+		// 先将所有class文件绝对路径放到PATH_SET中
 		findMetaClassToSet();
 		CompileClassLoader cc = new CompileClassLoader();
 		try {
-			//装载Class到CLASS_LIST
+			// 装载Class到CLASS_LIST
 			loadClassToList(cc);
 		} catch (ClassNotFoundException e) {
 			System.exit(0);
 		}
-		//循环对class类进行解析，将其转化成建表语句，放到CLASS_CREATETABLE_MAP中
+		// 循环对class类进行解析，将其转化成建表语句，放到CLASS_CREATETABLE_MAP中
 		for (Class<?> clazz : CLASS_LIST) {
 			CLASS_CREATETABLE_MAP.put(clazz, processToCreate(clazz));
+			CLASS_NAME_CLASS_MAP.put(clazz.getName(), clazz);
 		}
-		//将建表语句保存到本地
+		// 将建表语句保存到本地
 		saveCreateTableToFile();
+	}
+	
+	/**
+	 * 
+	 * @param args
+	 * @throws Exception
+	 */
+	public static void main(String[] args) throws Exception {
+		//将meta转换成建表语句并保存到本地
+		createTableToFile();
+		//可以选定class进行打印
+		String className = "com.netease.beauty.content.meta.ExchangeRate";
+		String sql = CLASS_CREATETABLE_MAP.get(CLASS_NAME_CLASS_MAP.get(className));
+		System.out.println(sql);
 	}
 }
