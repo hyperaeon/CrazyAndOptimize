@@ -361,7 +361,7 @@ public class AnnotationExtractor {
 		//将meta转换成建表语句并保存到本地
 		createTableToFile();
 		//可以选定class进行打印
-		String className = "com.netease.beauty.content.meta.ExchangeRate";
+		String className = "com.netease.beauty.content.meta.WebHomeNavigation";
 		String sql = CLASS_CREATETABLE_MAP.get(CLASS_NAME_CLASS_MAP.get(className));
 		System.out.println(sql);
 	}
