@@ -23,6 +23,7 @@ import java.util.StringTokenizer;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.TreeMap;
+import java.util.UUID;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -145,9 +146,57 @@ public class AnyTest implements Serializable {
 		// hadoopLsTest();
 //		safeTest();
 //		putIfAbsentTest();
-		timerTest();
+//		timerTest();
+		varargsTest(null);
+		int a = 7;
+		int b = AnyTest.highestOneBit(a);
+		System.out.println(b);
+//		testUUID();
+//		testUUIDType3();
+//		removeListTest();
+		String price = "26.9";
+		Long p = (long) (Double.valueOf(price) * 100);
+		System.out.println(p);
 	}
 
+	public static void removeListTest() {
+		List<String> list = new ArrayList<>();
+		list.add("1");
+		list.add("2");
+		for (String str : list) {
+			if ("2".equals(str)) {
+				list.remove(str);
+			}
+		}
+		System.out.println(list.size());
+	}
+	
+	public static void testUUIDType3() {
+		for (int i = 0; i < 100000; i++) {
+			System.out.println(UUID.nameUUIDFromBytes(String.valueOf(System.nanoTime()).getBytes()));
+		}
+	}
+	
+	public static void testUUID() {
+		for (int i = 0; i < 100000; i++) {
+			System.out.println(UUID.randomUUID().toString());
+		}
+	}
+	
+	public static int highestOneBit(int i) {
+        // HD, Figure 3-1
+        i |= (i >>  1);
+        i |= (i >>  2);
+        i |= (i >>  4);
+        i |= (i >>  8);
+        i |= (i >> 16);
+        return i - (i >>> 1);
+    }
+	
+	private static void varargsTest(Integer... a) {
+		System.out.println(a);
+	}
+	
 	private static void timerTest() {
 		System.out.println("About to schedule task.");
 		Timer timer = new Timer();
