@@ -154,9 +154,10 @@ public class AnyTest implements Serializable {
 //		testUUID();
 //		testUUIDType3();
 //		removeListTest();
-		String price = "26.9";
+		String price = "16.6";
 		Long p = (long) (Double.valueOf(price) * 100);
 		System.out.println(p);
+		System.out.println(Double.parseDouble("63.22") + Double.parseDouble("61.82"));
 	}
 
 	public static void removeListTest() {
