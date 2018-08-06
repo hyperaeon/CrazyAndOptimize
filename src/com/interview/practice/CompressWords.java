@@ -1,8 +1,5 @@
 package com.interview.practice;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.springframework.util.StringUtils;
 
 /**
@@ -59,7 +56,6 @@ public class CompressWords {
 	
 	/**
 	 * 对重复的词进行压缩，如输入"Ilofeiafeafead"，输出"Ilofeiafead"
-	 * 思路：遍历字符串的每个字符，output默认为空字符串；
 	 * @param words
 	 * @return
 	 * hzliyong
