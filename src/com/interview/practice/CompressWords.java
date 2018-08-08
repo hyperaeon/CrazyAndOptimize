@@ -12,8 +12,8 @@ public class CompressWords {
 
 	public static void main(String[] args) {
 //		String input = "Iloofeiafeaafeaad";
-		String input = "ooooooooooooooooosooooosoososoo";
-//		String input = "o";
+//		String input = "ooooooooooooooooosooooosoososoo";
+		String input = "o";
 		String output = handleDuplicateLetters(input);
 		output = handleDuplicateWords(output);
 		System.out.println("output:" + output);
@@ -66,38 +66,38 @@ public class CompressWords {
 		}
 		StringBuilder output = new StringBuilder();
 		String outputString = "";
-		String current = "";//当前词
+		String preview = "";//上一个词
 		String currentLetter = "";//当前字符
 		char[] inputs = words.toCharArray();
 		int index = 0;
 		for (int i = 0; i < inputs.length; i++) {
 			outputString = output.toString();
 			currentLetter = String.valueOf(inputs[i]);
-			if (isStringContains(outputString, current)
-					&& isStringContains(outputString, current + currentLetter)) {//如果output包含current和current+currentLetter字符串，则current添加currentLetter，并且继续变量
-				current += currentLetter;
-			} else if (isStringContains(outputString, current)
-					&& !isStringContains(outputString, current + currentLetter)) {//如果output包含current，但不包含current+currentLetter字符串
-				index = outputString.lastIndexOf(current);//current在output中的最后一个索引位置
-				if (index + current.length() != outputString.length()) {//如果current不是在outputString的最后位置，则说明不是重复的字符串，current和currentLetter都应该添加到output中
-					output.append(current + currentLetter);
-					current = "";//current重置空字符串
+			if (isStringContains(outputString, preview)
+					&& isStringContains(outputString, preview + currentLetter)) {//如果output包含preview和preview+currentLetter字符串，则preview添加currentLetter，并且继续变量
+				preview += currentLetter;
+			} else if (isStringContains(outputString, preview)
+					&& !isStringContains(outputString, preview + currentLetter)) {//如果output包含preview，但不包含preview+currentLetter字符串
+				index = outputString.lastIndexOf(preview);//preview在output中的最后一个索引位置
+				if (index + preview.length() != outputString.length()) {//如果preview不是在outputString的最后位置，则说明不是重复的字符串，preview和currentLetter都应该添加到output中
+					output.append(preview + currentLetter);
+					preview = "";//preview重置空字符串
 				} else {
-					current = currentLetter;
+					preview = currentLetter;
 				}
-			} else if (!isStringContains(outputString, current)
-					&& isStringContains(outputString, current + currentLetter)) {//如果output不包含current，但是包含current + currentLetter，此场景为current是空字符串
-				if (isLast(outputString, currentLetter)) {//如果currentLetter与output的最后一个字符重复，则舍去
-					current = "";//current重置空字符串
-				} else {//此时current赋值为currentLetter
-					current = currentLetter;
+			} else if (!isStringContains(outputString, preview)
+					&& isStringContains(outputString, preview + currentLetter)) {//如果output不包含preview，但是包含preview + currentLetter，此场景为preview是空字符串
+				if (isLast(outputString, currentLetter)) {//如果preview与output的最后一个字符重复，则舍去
+					preview = "";//preview重置空字符串
+				} else {//此时preview赋值为currentLetter
+					preview = currentLetter;
 				}
-			} else {//output既不包含current，也不包含current + currentLetter，此场景为current是空字符串，并且output也不包含currentLetter字符
-				output.append(current + currentLetter);
-				current = "";//current重置空字符串
+			} else {//output既不包含preview，也不包含preview + currentLetter，此场景为preview是空字符串，并且output也不包含currentLetter字符
+				output.append(preview + currentLetter);
+				preview = "";//preview重置空字符串
 			}
 			if (i == inputs.length - 1) {
-				output.append(current);
+				output.append(preview);
 			}
 		}
 		return output.toString();
