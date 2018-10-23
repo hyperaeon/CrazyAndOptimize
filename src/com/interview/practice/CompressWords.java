@@ -13,7 +13,8 @@ public class CompressWords {
 	public static void main(String[] args) {
 //		String input = "Iloofeiafeaafeaad";
 //		String input = "ooooooooooooooooosooooosoososoo";
-		String input = "o";
+//		String input = "o";
+		String input = "我们我们我们是";
 		String output = handleDuplicateLetters(input);
 		output = handleDuplicateWords(output);
 		System.out.println("output:" + output);
