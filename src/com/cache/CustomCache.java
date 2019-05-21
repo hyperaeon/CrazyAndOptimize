@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 /**
@@ -14,17 +15,19 @@ import java.util.stream.Collectors;
  */
 public class CustomCache {
 
+    private static final int MAXIMUM_CAPACITY = 1 << 30;
+
     private Map<String, Value> map;
 
     private int cacheSize = 1024;
 
     public CustomCache() {
-        map = new HashMap<>(cacheSize);
+        map = new ConcurrentHashMap<>(cacheSize);
     }
 
     public CustomCache(int size) {
         this.cacheSize = size;
-        map = new HashMap<>(size);
+        map = new ConcurrentHashMap<>(size);
     }
 
     /**
@@ -53,7 +56,7 @@ public class CustomCache {
             oldValue.setLatestAccessTime(currentTime);
             return true;
         }
-        if (map.size() >= cacheSize) {
+        if (cacheSize() >= cacheSize) {
             removeOldestCache();
         }
         Value newValue = Value.builder()
@@ -63,6 +66,23 @@ public class CustomCache {
                 .build();
         map.put(key, newValue);
         return true;
+    }
+
+    /**
+     * 获取缓存的大小
+     * @return
+     */
+    public int cacheSize(){
+        return map.size();
+    }
+    private static final int tableSizeFor(int c) {
+        int n = c - 1;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        n |= n >>> 4;
+        n |= n >>> 8;
+        n |= n >>> 16;
+        return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
     }
 
     /**
@@ -100,7 +120,7 @@ public class CustomCache {
      * @return
      */
     private String getOldestKey() {
-        if (map.size() <= 0) {
+        if (cacheSize() <= 0) {
             return null;
         }
         Comparator<Value> comparator = Comparator.comparing(Value::getLatestAccessTime);
@@ -121,10 +141,13 @@ public class CustomCache {
     public static void main(String[] args) throws Exception {
         CustomCache customCache = new CustomCache(2);
         customCache.putCache("abc", "abc");
+        Thread.sleep(200L);
         customCache.putCache("bcd", "bcd");
         customCache.putCache("def", "def");
         Object obj = customCache.getCache("abc");
         System.out.println(obj);
+        int c = 7;
+        System.out.println(tableSizeFor(c));
     }
 
 }
