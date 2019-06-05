@@ -51,6 +51,7 @@ public class CustomCache {
         Value oldValue = map.get(key);
         long currentTime = System.currentTimeMillis();
         if (oldValue != null) {
+            //已经存在，则直接覆盖
             oldValue.setValue(data);
             oldValue.setExpireTime(currentTime + expire);
             oldValue.setLatestAccessTime(currentTime);
@@ -86,7 +87,7 @@ public class CustomCache {
     }
 
     /**
-     * 获取缓存的值
+     * 获取缓存的值，更新Value中的latestAccessTime
      * @param key
      * @return
      */
@@ -100,7 +101,8 @@ public class CustomCache {
             removeCache(key);
             return null;
         }
-        return map.get(key).getValue();
+        value.setLatestAccessTime(System.currentTimeMillis());
+        return value.getValue();
     }
     /**
       * @description 移除最早访问的key
