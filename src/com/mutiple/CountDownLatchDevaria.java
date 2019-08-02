@@ -3,7 +3,6 @@ package com.mutiple;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @author hzliyong
  * @description
  * @date 2019/8/2 0002
  * @time 16:02
