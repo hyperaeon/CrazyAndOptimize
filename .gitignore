@@ -3,3 +3,7 @@
 /.classpath
 /1476105563847
 /cachedir/
+.idea
+/*.iml
+/.idea/*
+*.iml
