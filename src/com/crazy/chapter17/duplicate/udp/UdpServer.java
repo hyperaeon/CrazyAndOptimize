@@ -8,7 +8,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class UdpServer {

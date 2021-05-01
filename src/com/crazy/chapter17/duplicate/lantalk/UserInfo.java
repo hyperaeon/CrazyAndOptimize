@@ -6,7 +6,7 @@ package com.crazy.chapter17.duplicate.lantalk;
 import java.net.SocketAddress;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class UserInfo {

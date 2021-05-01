@@ -9,7 +9,7 @@ import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.charset.Charset;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class SimpleAIOClient {

@@ -11,7 +11,7 @@ import java.util.Properties;
 import java.util.Scanner;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class DefaultProxySelectorTest {

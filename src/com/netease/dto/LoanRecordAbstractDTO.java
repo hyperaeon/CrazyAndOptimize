@@ -4,7 +4,7 @@ import com.netease.enums.AccountType;
 
 /**
  * 信贷信息概要
- * @author hzliyong
+ * @author ly
  *
  */
 public class LoanRecordAbstractDTO {

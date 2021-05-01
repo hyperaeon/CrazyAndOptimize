@@ -2,7 +2,7 @@ package com.netease.util;
 
 /**
  * 封装常量
- * @author hzliyong
+ * @author ly
  *
  */
 public class ConstantUtil

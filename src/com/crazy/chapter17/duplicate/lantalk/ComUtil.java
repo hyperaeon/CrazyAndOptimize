@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class ComUtil {

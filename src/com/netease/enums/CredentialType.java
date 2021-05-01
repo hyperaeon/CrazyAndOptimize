@@ -2,7 +2,7 @@ package com.netease.enums;
 
 /**
  * 证件类型
- * @author hzliyong
+ * @author ly
  *
  */
 public enum CredentialType {

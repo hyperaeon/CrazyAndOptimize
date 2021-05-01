@@ -2,7 +2,7 @@ package com.netease.enums;
 
 /**
  * 查询记录的查询性质
- * @author hzliyong
+ * @author ly
  *
  */
 public enum CheckType {

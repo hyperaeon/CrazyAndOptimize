@@ -2,7 +2,7 @@ package com.netease.enums;
 
 /**
  * 婚姻状态
- * @author hzliyong
+ * @author ly
  *
  */
 public enum MarriageType {

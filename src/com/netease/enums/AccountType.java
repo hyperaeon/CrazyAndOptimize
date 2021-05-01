@@ -2,7 +2,7 @@ package com.netease.enums;
 
 /**
  * 账户类型
- * @author hzliyong
+ * @author ly
  *
  */
 public enum AccountType {

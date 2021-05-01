@@ -2,7 +2,7 @@ package com.netease.dto;
 
 /**
  * 封装回答问题所用的dto
- * @author hzliyong
+ * @author ly
  *
  */
 public class QuestionPageDTO {

@@ -2,9 +2,9 @@ package com.algorithm.leeCode.simple;
 
 /**
  * @program: CrazyAndOptimize
- * @description: sdf
+ * @description: 字符串替换
  * @author: ly
- * @create: 2021-05-01 17:39
+ * @create: 2021-05-01 18:00
  **/
-public class Test3 {
+public class StringReplace {
 }

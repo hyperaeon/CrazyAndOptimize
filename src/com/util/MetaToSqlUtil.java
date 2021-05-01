@@ -26,7 +26,7 @@
 // *
 // * 注意：生成sql语句后text类型可能需要修改成varchar类型；索引如果要新增的话需要再添加；POLICY可能需要修改，默认是user
 // *
-// * @author hzliyong
+// * @author ly
 // *
 // */
 //public class MetaToSqlUtil {
@@ -84,7 +84,7 @@
 //
 //	/**
 //	 * 符号
-//	 * @author hzliyong
+//	 * @author ly
 //	 *
 //	 */
 //	class Symbol {
@@ -114,7 +114,7 @@
 //
 //	/**
 //	 * @Description: 将clazz转换成建表语句
-//	 * @Author: hzliyong
+//	 * @Author: ly
 //	 * @Date: 2017年9月14日
 //	 * @Time: 下午7:16:06
 //	 * @param clazz
@@ -237,7 +237,7 @@
 //
 //	/**
 //	 * @Description: 用单引号包裹str
-//	 * @Author: hzliyong
+//	 * @Author: ly
 //	 * @Date: 2017年9月14日
 //	 * @Time: 下午9:43:57
 //	 * @param str
@@ -277,7 +277,7 @@
 //
 //	/**
 //	 * @Description: 遍历PATH_LIST查找所有meta类对应的class文件，将文件的路径放到PATH_SET中
-//	 * @Author: hzliyong
+//	 * @Author: ly
 //	 * @Date: 2017年9月14日
 //	 * @Time: 下午7:41:56
 //	 * @param path
@@ -299,7 +299,7 @@
 //
 //	/**
 //	 * @Description: 使用classLoader加载PATH_SET中的文件到CLASS_LIST中
-//	 * @Author: hzliyong
+//	 * @Author: ly
 //	 * @Date: 2017年9月14日
 //	 * @Time: 下午8:14:58
 //	 * @param classLoader
@@ -335,7 +335,7 @@
 //	 * 2、装载Class到CLASS_LIST
 //	 * 3、循环对class类进行解析，将其转化成建表语句，放到CLASS_CREATETABLE_MAP中
 //	 * 4、将建表语句保存到本地
-//	 * @Author: hzliyong
+//	 * @Author: ly
 //	 * @Date: 2017年9月21日
 //	 * @Time: 下午5:18:27
 //	 */
@@ -377,7 +377,7 @@
 //
 //	/**
 //	 * @Description: 将文件读取成byte数组
-//	 * @Author: hzliyong
+//	 * @Author: ly
 //	 * @Date: 2017年9月14日
 //	 * @Time: 下午7:20:02
 //	 * @param fileName

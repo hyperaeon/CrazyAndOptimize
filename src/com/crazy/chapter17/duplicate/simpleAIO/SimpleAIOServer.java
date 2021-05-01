@@ -10,7 +10,7 @@ import java.nio.channels.AsynchronousSocketChannel;
 import java.util.concurrent.Future;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class SimpleAIOServer {

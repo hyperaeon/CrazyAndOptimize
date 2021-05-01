@@ -230,7 +230,7 @@ public class AnyTest implements Serializable {
 	/**
 	 * 0.2+0.1转化成二进制后相加的结果为0.0100110011001100110011001100110011001100110011001100110011001100
 	 * 下面是0.0100110011001100110011001100110011001100110011001100110011001100转化成十进制的结果
-	 * hzliyong
+	 * ly
 	 */
 	public static void powTest() {
 		double d = 0.25;
@@ -339,7 +339,7 @@ public class AnyTest implements Serializable {
 		String command = "cd";
 		ProcessBuilder pb = new ProcessBuilder(command);
 		System.out.println(pb.command());
-		String name = "hzliyong";
+		String name = "ly";
 	}
 
 	/**
@@ -440,7 +440,7 @@ public class AnyTest implements Serializable {
 			byte[] buffer = new byte[1024];
 			int len = -1;
 			java.io.FileOutputStream fout = new java.io.FileOutputStream(
-					"C:/Users/hzliyong/Desktop/response.txt");
+					"C:/Users/ly/Desktop/response.txt");
 			java.io.ByteArrayOutputStream bout = new java.io.ByteArrayOutputStream();
 			java.io.InputStream in = socket.getInputStream();
 			while ((len = in.read(buffer, 0, buffer.length)) > 0) {
@@ -833,7 +833,7 @@ public class AnyTest implements Serializable {
 	}
 
 	private static void split163com() throws Exception {
-		String path = "C:/Users/hzliyong/Desktop/";
+		String path = "C:/Users/ly/Desktop/";
 		RandomAccessFile raf = null;
 		try {
 			raf = new RandomAccessFile(path + "userid.txt", "r");
@@ -860,7 +860,7 @@ public class AnyTest implements Serializable {
 	}
 
 	private static void splitInNumber() throws Exception {
-		String path = "C:/Users/hzliyong/Desktop/";
+		String path = "C:/Users/ly/Desktop/";
 		RandomAccessFile raf = null;
 		int count = 0;
 		try {

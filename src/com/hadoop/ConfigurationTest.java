@@ -6,7 +6,7 @@ public class ConfigurationTest {
 
 	public static void main(String[] args) {
 		Configuration conf = new Configuration();
-		conf.addResource("C:/Users/hzliyong/git/CrazyAndOptimize/src/com/hadoop/configuration-1.xml");
+		conf.addResource("C:/Users/ly/git/CrazyAndOptimize/src/com/hadoop/configuration-1.xml");
 		System.out.println(conf.get("color"));
 		System.out.println(conf.get("size"));
 	}

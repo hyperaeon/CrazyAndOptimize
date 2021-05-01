@@ -4,7 +4,7 @@
 package com.effective.chapter2.rule2;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class NutritionFacts {

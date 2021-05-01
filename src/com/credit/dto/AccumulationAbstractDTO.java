@@ -6,7 +6,7 @@ import com.credit.enums.CredentialType;
 
 /**
  * 公积金概要信息
- * @author hzliyong
+ * @author ly
  *
  */
 public class AccumulationAbstractDTO {
