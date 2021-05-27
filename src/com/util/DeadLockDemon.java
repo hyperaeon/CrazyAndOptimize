@@ -1,4 +1,4 @@
-package com.test;
+package com.util;
 
 /**
  * @program: music-live-broadcast-entrance
