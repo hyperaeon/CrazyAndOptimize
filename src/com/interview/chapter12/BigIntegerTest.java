@@ -11,5 +11,8 @@ public class BigIntegerTest {
 		System.out.println(one);
 		String i = "";
 		System.out.println(i == i + 0);
+		int n = 5;
+		String str = Integer.toBinaryString(n);
+		System.out.println(str);
 	}
 }
