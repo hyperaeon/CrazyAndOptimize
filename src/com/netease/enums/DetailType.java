@@ -2,7 +2,7 @@ package com.netease.enums;
 
 /**
  * 报告明细的类型
- * @author hzliyong
+ * @author ly
  *
  */
 public enum DetailType {

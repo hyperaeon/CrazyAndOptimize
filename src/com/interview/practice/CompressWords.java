@@ -5,7 +5,7 @@ import org.springframework.util.StringUtils;
 /**
  * 输入一串字符串，输出压缩后的字符串
  * 如输入字符串为"Iloofeiafeaafeaad"，输出"Ilofeiafead"
- * @author hzliyong
+ * @author ly
  * @date 2018年8月2日 上午10:25:33
  */
 public class CompressWords {
@@ -29,7 +29,7 @@ public class CompressWords {
 	 * 实现核心思想：当前字母如果和前一个字母相同则不放，如果不相同，则放入
 	 * @param words
 	 * @return
-	 * hzliyong
+	 * ly
 	 */
 	private static String handleDuplicateLetters(String words) {
 		if (StringUtils.isEmpty(words)) {
@@ -59,7 +59,7 @@ public class CompressWords {
 	 * 对重复的词进行压缩，如输入"Ilofeiafeafead"，输出"Ilofeiafead"
 	 * @param words
 	 * @return
-	 * hzliyong
+	 * ly
 	 */
 	private static String handleDuplicateWords(String words) {
 		if (StringUtils.isEmpty(words)) {
@@ -110,7 +110,7 @@ public class CompressWords {
 	 * @param str1
 	 * @param str2
 	 * @return
-	 * hzliyong
+	 * ly
 	 */
 	private static boolean isStringContains(String str1, String str2) {
 		int lastIndex = str1.lastIndexOf(str2);
@@ -122,7 +122,7 @@ public class CompressWords {
 	 * @param str1
 	 * @param str2
 	 * @return
-	 * hzliyong
+	 * ly
 	 */
 	private static boolean isLast(String str1, String str2) {
 		return str1.lastIndexOf(str2) == str1.length() - 1;

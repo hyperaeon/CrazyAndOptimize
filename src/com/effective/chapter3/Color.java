@@ -4,7 +4,7 @@
 package com.effective.chapter3;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class Color {

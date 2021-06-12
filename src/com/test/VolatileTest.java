@@ -4,7 +4,7 @@
 package com.test;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class VolatileTest {

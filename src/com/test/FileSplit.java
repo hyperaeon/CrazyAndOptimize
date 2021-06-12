@@ -7,7 +7,7 @@ import java.io.RandomAccessFile;
 
 public class FileSplit {
 
-	private static final String SOURCE_PATH = "C:\\Users\\hzliyong\\Documents\\file\\";
+	private static final String SOURCE_PATH = "C:\\Users\\ly\\Documents\\file\\";
 
 	private static final String DESTIN_PATH = "E:\\projects\\";
 

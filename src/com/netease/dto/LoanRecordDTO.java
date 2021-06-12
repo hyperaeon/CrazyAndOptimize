@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * 信贷记录
- * @author hzliyong
+ * @author ly
  *
  */
 public class LoanRecordDTO {

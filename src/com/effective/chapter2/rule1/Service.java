@@ -4,7 +4,7 @@
 package com.effective.chapter2.rule1;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public interface Service {

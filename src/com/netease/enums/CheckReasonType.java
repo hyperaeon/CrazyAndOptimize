@@ -2,7 +2,7 @@ package com.netease.enums;
 
 /**
  * 报告查询原因
- * @author hzliyong
+ * @author ly
  *
  */
 public enum CheckReasonType {

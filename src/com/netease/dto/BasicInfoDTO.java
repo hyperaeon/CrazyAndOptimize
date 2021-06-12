@@ -6,7 +6,7 @@ import com.netease.enums.CredentialType;
 
 /**
  * 个人基本信息
- * @author hzliyong
+ * @author ly
  *
  */
 public class BasicInfoDTO {

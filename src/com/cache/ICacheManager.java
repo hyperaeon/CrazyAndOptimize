@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author hzliyong
+ * @author ly
  * @date 2018年7月25日 下午4:43:33
  */
 public interface ICacheManager {
@@ -13,7 +13,7 @@ public interface ICacheManager {
 	 * 放入缓存
 	 * @param key
 	 * @param cache
-	 * hzliyong
+	 * ly
 	 */
 	void putCache(String key, Cache cache);
 	
@@ -22,7 +22,7 @@ public interface ICacheManager {
 	 * @param key
 	 * @param data
 	 * @param timeOut
-	 * hzliyong
+	 * ly
 	 */
 	void putCache(String key, Object data, long timeOut);
 	
@@ -30,7 +30,7 @@ public interface ICacheManager {
 	 * 根据key获取缓存
 	 * @param key
 	 * @return
-	 * hzliyong
+	 * ly
 	 */
 	Cache getCacheByKey(String key);
 	
@@ -38,14 +38,14 @@ public interface ICacheManager {
 	 * 
 	 * @param key
 	 * @return
-	 * hzliyong
+	 * ly
 	 */
 	Object getDataByKey(String key);
 	
 	/**
 	 * 获取所有缓存
 	 * @return
-	 * hzliyong
+	 * ly
 	 */
 	Map<String, Cache> getAllCache();
 	
@@ -53,21 +53,21 @@ public interface ICacheManager {
 	 * 是否在缓存中存在
 	 * @param key
 	 * @return
-	 * hzliyong
+	 * ly
 	 */
 	boolean isContains(String key);
 	
 	/**
 	 * 清除缓存
 	 * 
-	 * hzliyong
+	 * ly
 	 */
 	void clearAll();
 	
 	/**
 	 * 清除对应的缓存
 	 * @param key
-	 * hzliyong
+	 * ly
 	 */
 	void clearByKey(String key);
 	
@@ -75,14 +75,14 @@ public interface ICacheManager {
 	 * 是否超时失效
 	 * @param key
 	 * @return
-	 * hzliyong
+	 * ly
 	 */
 	boolean isTimeout(String key);
 	
 	/**
 	 * 获取所有键
 	 * @return
-	 * hzliyong
+	 * ly
 	 */
 	Set<String> getAllKeys();
 }

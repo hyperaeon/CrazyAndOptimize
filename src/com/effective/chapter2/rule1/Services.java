@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class Services {

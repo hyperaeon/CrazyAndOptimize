@@ -10,7 +10,7 @@ import java.net.InetAddress;
 import java.util.Scanner;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class UdpClient {

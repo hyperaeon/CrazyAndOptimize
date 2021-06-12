@@ -27,7 +27,7 @@ import javax.swing.ListCellRenderer;
 import com.crazy.chapter13.LoginFrame;
 
 /**
- * @author hzliyong
+ * @author ly
  *
  */
 public class LanTalk extends JFrame {

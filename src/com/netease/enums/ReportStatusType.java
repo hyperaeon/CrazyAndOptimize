@@ -3,7 +3,7 @@ package com.netease.enums;
 
 /**
  * 报告状态
- * @author hzliyong
+ * @author ly
  *
  */
 public enum ReportStatusType {

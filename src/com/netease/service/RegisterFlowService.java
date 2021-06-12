@@ -26,7 +26,7 @@ import com.netease.vo.UserInfoVO;
 
 /**
  * 注册服务
- * @author hzliyong
+ * @author ly
  *
  */
 @Service
