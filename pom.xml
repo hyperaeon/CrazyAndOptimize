@@ -8,7 +8,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<springVersion>4.2.7.RELEASE</springVersion>
+		<springVersion>5.3.19</springVersion>
 		<cucumberVersion>1.1.8</cucumberVersion>
 		<quartz.version>1.6.3</quartz.version>
 		<powermock.version>1.6.0</powermock.version>
